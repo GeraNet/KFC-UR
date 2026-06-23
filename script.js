@@ -1,71 +1,104 @@
-const menu=[
-
-
-["Чізбургер",300,"🍔"],
-["Дабл Чізбургер",450,"🍔"],
-["Сандерс Класік",550,"🍔"],
-["Сандерс Зінгер",650,"🍔"],
-["Шефбургер",750,"🍔"],
-["Боксмайстер",900,"🍔"],
-["Гетьман Бургер ⭐",1200,"🍔"],
-["Козацький Дабл Бургер ⭐",1500,"🍔"],
-
-
-["3 Стріпси",500,"🍗"],
-["5 Стріпсів",700,"🍗"],
-["5 Крил",700,"🍗"],
-["9 Нагетсів",600,"🍗"],
-
-
-["Картопля Фрі",300,"🍟"],
-["Картопля по-селянськи",400,"🍟"],
-["Сирний соус",300,"🍟"],
-["Барбекю соус",300,"🍟"],
-
-
-["Coca-Cola 0.5",300,"🥤"],
-["Coca-Cola 1 л",500,"🥤"],
-["Sprite 0.5",300,"🥤"],
-["Fanta 0.5",300,"🥤"],
-["Узвар ⭐",500,"🥤"],
-["Лимонад Київський ⭐",600,"🥤"],
-["Козак Energy ⭐",1000,"🥤"],
-
-
-["Зінгер Комбо",1200,"🎁"],
-["Шефбургер Комбо",1500,"🎁"],
-["Гетьман Комбо",2500,"🎁"],
-["Козацьке Комбо",3000,"🎁"]
-
-
-];
+const telegram="https://t.me/Duf7484";
 
 
 let cart=[];
 
 
 
-const products=document.getElementById("products");
+let menu={
+
+
+burgers:[
+["Чізбургер",300],
+["Дабл Чізбургер",450],
+["Сандерс Класік",550],
+["Сандерс Зінгер",650],
+["Шефбургер",750],
+["Боксмайстер",900],
+["Гетьман Бургер ⭐",1200],
+["Козацький Дабл Бургер ⭐",1500]
+],
+
+
+chicken:[
+["3 Стріпси",500],
+["5 Стріпсів",700],
+["5 Крил",700],
+["9 Нагетсів",600]
+],
+
+
+garnish:[
+["Картопля Фрі",300],
+["Картопля по-селянськи",400],
+["Сирний соус",300],
+["Барбекю соус",300]
+],
+
+
+drinks:[
+["Coca-Cola 0.5",300],
+["Coca-Cola 1л",500],
+["Sprite",300],
+["Fanta",300],
+["Узвар ⭐",500],
+["Лимонад Київський ⭐",600],
+["Козак Energy ⭐",1000]
+],
+
+
+combo:[
+["Зінгер Комбо",1200],
+["Шефбургер Комбо",1500],
+["Гетьман Комбо",2500],
+["Козацьке Комбо",3000]
+]
+
+
+};
 
 
 
-menu.forEach(item=>{
+let current=[];
 
 
-products.innerHTML+=`
+
+function openCat(cat){
+
+current=menu[cat];
+
+render(current);
+
+}
+
+
+
+function render(list){
+
+
+let box=document.getElementById("menu");
+
+box.innerHTML="";
+
+
+let div=document.createElement("div");
+
+div.className="products";
+
+
+
+list.forEach(i=>{
+
+
+div.innerHTML+=`
 
 <div class="card">
 
-<h3>
-${item[2]} ${item[0]}
-</h3>
+<h3>${i[0]}</h3>
 
-<p>
-${item[1]} грн
-</p>
+<p>${i[1]} грн</p>
 
-
-<button onclick="add('${item[0]}',${item[1]})">
+<button onclick="add('${i[0]}',${i[1]})">
 
 Додати
 
@@ -77,23 +110,19 @@ ${item[1]} грн
 
 `;
 
-
 });
 
 
+box.appendChild(div);
+
+
+}
 
 
 
 function add(name,price){
 
-cart.push({
-
-name,
-
-price
-
-});
-
+cart.push([name,price]);
 
 update();
 
@@ -101,78 +130,68 @@ update();
 
 
 
+
+function addVIP(){
+
+cart.push(["VIP місце",1500]);
+
+update();
+
+}
+
+
+
+
 function update(){
 
 
-let box=document.getElementById("cartItems");
+let box=document.getElementById("cart");
+
+box.innerHTML="";
 
 
 let sum=0;
 
 
-box.innerHTML="";
-
-
 cart.forEach(i=>{
 
 
-sum+=i.price;
+sum+=i[1];
 
 
 box.innerHTML+=`
 
-<p>
-${i.name} - ${i.price} грн
-</p>
+<p>${i[0]} - ${i[1]} грн</p>
 
 `;
 
 });
 
 
-document.getElementById("foodPrice").innerHTML=sum;
+let tips=
+
+Number(document.getElementById("tips").value)||0;
 
 
-calc();
+document.getElementById("food").innerHTML=sum;
 
-
-}
-
-
-
-function calc(){
-
-
-let food=Number(document.getElementById("foodPrice").innerHTML);
-
-
-let tips=Number(document.getElementById("tips").value);
-
-
-document.getElementById("total").innerHTML=food+tips;
+document.getElementById("total").innerHTML=sum+tips;
 
 
 }
 
 
 
-document.getElementById("tips").oninput=calc;
 
-
-
-
-function telegramOrder(){
+function order(){
 
 
 let total=Number(document.getElementById("total").innerHTML);
 
 
-
 if(total<1000){
 
-alert(
-"Мінімальна сума замовлення 1000 грн з чайовими"
-);
+alert("Мінімум 1000 грн");
 
 return;
 
@@ -181,21 +200,54 @@ return;
 
 if(total>8000){
 
-alert(
-"Максимальна сума замовлення 8000 грн"
-);
+alert("Максимум 8000 грн");
 
 return;
 
 }
 
 
+window.open(telegram);
 
-window.open(
+}
 
-"https://t.me/Duf7484",
 
-"_blank"
+
+
+function simpleBooking(){
+
+
+window.open(telegram);
+
+
+}
+
+
+
+
+function searchFood(){
+
+
+let text=document.getElementById("search").value.toLowerCase();
+
+
+let all=[];
+
+
+Object.values(menu).forEach(x=>{
+
+all.push(...x)
+
+});
+
+
+render(
+
+all.filter(x=>
+
+x[0].toLowerCase().includes(text)
+
+)
 
 );
 
@@ -204,11 +256,9 @@ window.open(
 
 
 
-
 function scrollToMenu(){
 
-document.getElementById("menu")
-.scrollIntoView({
+document.getElementById("menu").scrollIntoView({
 
 behavior:"smooth"
 
@@ -218,13 +268,15 @@ behavior:"smooth"
 
 
 
-function scrollToCart(){
+function scrollCart(){
 
-document.querySelector(".cart")
-.scrollIntoView({
+document.querySelector(".cart").scrollIntoView({
 
 behavior:"smooth"
 
 });
 
 }
+
+
+openCat("burgers");
