@@ -1,8 +1,10 @@
 <!DOCTYPE html>
 <html lang="uk">
+
 <head>
 
 <meta charset="UTF-8">
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>UR KFC | Ukraine RP</title>
@@ -10,6 +12,7 @@
 <link rel="stylesheet" href="style.css">
 
 </head>
+
 
 <body>
 
@@ -20,36 +23,139 @@
 <span>UR</span> KFC
 </div>
 
-<p>UKRAINE RP</p>
+<div class="rp">
+UKRAINE RP
+</div>
+
 
 </header>
 
 
 
+
 <section class="hero">
+
 
 <h1>
 Смачна курка.<br>
 Відмінний сервіс.
 </h1>
 
+
+<p>
+Головний вокзал Ukraine RP
+</p>
+
+
 <button onclick="scrollToMenu()">
-Меню
+
+Переглянути меню
+
 </button>
+
 
 </section>
 
 
 
-<div class="categories">
 
-<button onclick="openCat('burgers')">🍔 Бургери</button>
-<button onclick="openCat('chicken')">🍗 Курка</button>
-<button onclick="openCat('garnish')">🍟 Гарніри</button>
-<button onclick="openCat('drinks')">🥤 Напої</button>
-<button onclick="openCat('combo')">🎁 Комбо</button>
 
-</div>
+<section class="about">
+
+
+<h2>🍗 Про UR KFC</h2>
+
+
+<p>
+
+UR KFC — це ресторан у світі Ukraine RP,
+де ми створюємо якісний сервіс,
+смачну їжу та атмосферу справжнього закладу.
+
+</p>
+
+
+<p>
+
+У нас ви можете замовити бургери,
+курку, гарніри, напої та комбо.
+
+</p>
+
+
+</section>
+
+
+
+
+
+<section class="service">
+
+
+<h2>🚚 Доставка та отримання</h2>
+
+
+<ul>
+
+<li>🍗 Забрати замовлення самостійно</li>
+
+<li>🚗 Замовити доставку</li>
+
+<li>🪑 Забронювати столик</li>
+
+
+</ul>
+
+
+<p>
+
+При доставці потрібно вказати локацію
+під час замовлення через Telegram.
+
+</p>
+
+
+</section>
+
+
+
+
+
+
+<section class="menu-buttons">
+
+
+<h2>🍔 Меню</h2>
+
+
+<button onclick="openCat('burgers')">
+🍔 Бургери
+</button>
+
+
+<button onclick="openCat('chicken')">
+🍗 Курка
+</button>
+
+
+<button onclick="openCat('garnish')">
+🍟 Гарніри
+</button>
+
+
+<button onclick="openCat('drinks')">
+🥤 Напої
+</button>
+
+
+<button onclick="openCat('combo')">
+🎁 Комбо
+</button>
+
+
+</section>
+
+
 
 
 
@@ -62,6 +168,7 @@ oninput="searchFood()"
 
 
 
+
 <section id="menu">
 
 </section>
@@ -69,22 +176,53 @@ oninput="searchFood()"
 
 
 
+
+
 <section class="booking">
 
-<h2>🪑 Бронювання столика</h2>
+
+<h2>
+🪑 Бронювання столика
+</h2>
+
 
 
 <button onclick="simpleBooking()">
+
 Забронювати просте місце
+
 </button>
+
 
 
 <button onclick="addVIP()">
+
 👑 VIP місце +1500 грн
+
 </button>
 
 
+
+<p>
+
+Прості місця:
+оплата 100 грн на місці.
+
+
+</p>
+
+
+<p>
+
+VIP місця:
+додаються у корзину.
+
+</p>
+
+
 </section>
+
+
 
 
 
@@ -93,7 +231,10 @@ oninput="searchFood()"
 <section class="cart">
 
 
-<h2>🛒 Корзина</h2>
+<h2>
+🛒 Корзина
+</h2>
+
 
 
 <div id="cart">
@@ -103,26 +244,59 @@ oninput="searchFood()"
 </div>
 
 
+
+<hr>
+
+
 <p>
+
 Їжа:
-<span id="food">0</span> грн
+
+<b>
+
+<span id="food">
+0
+</span>
+
+грн
+
+</b>
+
+
 </p>
 
 
 
-<input 
-id="tips"
+
+<input
+
 type="number"
-placeholder="Чайові"
+
+id="tips"
+
+placeholder="💰 Введіть чайові"
+
 oninput="update()"
+
 >
 
 
 
 <h2>
+
 Разом:
-<span id="total">0</span> грн
+
+<span id="total">
+
+0
+
+</span>
+
+грн
+
+
 </h2>
+
 
 
 
@@ -133,19 +307,43 @@ oninput="update()"
 </button>
 
 
-<p class="pay">
 
-💳 Оплата:<br>
 
-<b>Carlson9990</b><br>
+<div class="payment">
+
+
+<h3>
+💳 Оплата
+</h3>
+
+
+<p>
+
+Реквізити:
+
+<br>
+
+<b>
+Carlson9990
+</b>
+
+
+<br>
+
 
 Власник: KFC UR
+
 
 </p>
 
 
+</div>
+
+
 
 </section>
+
+
 
 
 
@@ -153,34 +351,48 @@ oninput="update()"
 
 <section class="info">
 
+
 <h2>
-Як замовити
+📋 Як замовити
 </h2>
 
 
 <p>
 
-1. Зробіть скрін корзини
+
+1. Зробіть скріншот корзини.
+
 
 <br><br>
 
-2. Натисніть Telegram
+
+2. Натисніть кнопку Telegram.
+
 
 <br><br>
 
-3. Напишіть їжа або бронювання
+
+3. Напишіть:
+їжа або бронювання столика.
+
 
 <br><br>
 
-4. Надішліть скрін
+
+4. Надішліть скріншот.
+
 
 <br><br>
 
-5. Вкажіть адресу доставки
+
+5. Вкажіть адресу доставки.
+
 
 <br><br>
 
-6. Оплатіть
+
+6. Оплатіть по реквізитам.
+
 
 </p>
 
@@ -191,15 +403,99 @@ oninput="update()"
 
 
 
+
+
+
+<section class="working">
+
+
+<h2>
+🕒 Графік роботи
+</h2>
+
+
+<p>
+
+Працюємо:
+
+</p>
+
+
+<h3>
+
+7 днів на тиждень
+
+</h3>
+
+
+</section>
+
+
+
+
+
+
+
+
+<section class="location">
+
+
+<h2>
+
+📍 Локація
+
+</h2>
+
+
+<p>
+
+Головний вокзал Ukraine RP
+
+</p>
+
+
+<p>
+
+Чекаємо вас щодня!
+
+</p>
+
+
+</section>
+
+
+
+
+
+
 <nav>
 
-<button onclick="scrollToMenu()">🍔</button>
 
-<button onclick="scrollCart()">🛒</button>
+<button onclick="scrollToMenu()">
 
-<button>📍</button>
+🍔
+
+</button>
+
+
+<button onclick="scrollCart()">
+
+🛒
+
+</button>
+
+
+<button onclick="scrollLocation()">
+
+📍
+
+</button>
+
 
 </nav>
+
+
+
 
 
 
@@ -207,4 +503,5 @@ oninput="update()"
 
 
 </body>
+
 </html>
