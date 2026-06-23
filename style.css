@@ -1,38 +1,59 @@
 *{
-
-box-sizing:border-box;
 margin:0;
 padding:0;
-font-family:Arial;
-
+box-sizing:border-box;
+font-family:Arial,sans-serif;
 }
 
 
 body{
 
-background:#f5f5f5;
-padding-bottom:80px;
+background:#0b0b0b;
+color:white;
+padding-bottom:90px;
+animation:pageShow .7s ease;
 
 }
+
+
+
+@keyframes pageShow{
+
+from{
+opacity:0;
+}
+
+to{
+opacity:1;
+}
+
+}
+
 
 
 
 header{
 
-background:white;
+background:#111;
+
 padding:20px;
+
 text-align:center;
-box-shadow:0 5px 20px #ddd;
+
+box-shadow:0 5px 20px #000;
 
 }
+
 
 
 .logo{
 
 font-size:45px;
-font-weight:bold;
+
+font-weight:900;
 
 }
+
 
 
 .logo span{
@@ -42,12 +63,17 @@ color:#e4002b;
 }
 
 
-header p{
+
+.rp{
 
 color:#e4002b;
+
+font-weight:bold;
+
 letter-spacing:5px;
 
 }
+
 
 
 
@@ -57,28 +83,74 @@ height:330px;
 
 background:
 
-linear-gradient(#0008,#0008),
+linear-gradient(#0009,#0009),
+
 url("https://images.unsplash.com/photo-1568901346375-23c9450c58cd");
 
 background-size:cover;
 
+background-position:center;
+
 display:flex;
+
 flex-direction:column;
-align-items:center;
+
 justify-content:center;
 
-color:white;
+align-items:center;
+
 text-align:center;
 
 }
 
 
+
+
+.hero h1{
+
+font-size:35px;
+
+animation:textMove 1s ease;
+
+}
+
+
+
+
+@keyframes textMove{
+
+
+from{
+
+opacity:0;
+
+transform:translateY(-40px);
+
+}
+
+
+to{
+
+opacity:1;
+
+transform:translateY(0);
+
+}
+
+
+}
+
+
+
+
 button{
 
+
 background:#e4002b;
+
 color:white;
 
-border:0;
+border:none;
 
 padding:14px 20px;
 
@@ -88,146 +160,405 @@ margin:5px;
 
 font-size:16px;
 
+cursor:pointer;
+
+transition:.3s;
+
+
 }
 
 
 
-.categories{
 
-padding:15px;
+button:hover{
 
-display:flex;
 
-overflow:auto;
+transform:scale(1.08);
+
 
 }
+
+
+
+button:active{
+
+
+transform:scale(.95);
+
+
+}
+
+
+
+
+.hero button{
+
+
+animation:pulse 2s infinite;
+
+
+}
+
+
+
+
+
+@keyframes pulse{
+
+
+0%{
+
+box-shadow:0 0 0 0 #e4002b;
+
+}
+
+
+
+70%{
+
+box-shadow:0 0 0 15px transparent;
+
+}
+
+
+
+100%{
+
+box-shadow:0 0 0 0 transparent;
+
+}
+
+
+}
+
+
+
+
+
+
+
+.menu-buttons{
+
+
+padding:20px;
+
+text-align:center;
+
+
+}
+
+
+
+
+
+.menu-buttons h2{
+
+
+color:#e4002b;
+
+
+}
+
+
 
 
 .search{
 
+
 width:90%;
-margin:15px;
+
+margin:20px;
 
 padding:15px;
 
 border-radius:20px;
 
-border:1px solid #ccc;
+border:1px solid #333;
+
+background:#1c1c1c;
+
+color:white;
+
+font-size:16px;
+
 
 }
+
+
 
 
 
 
 #menu{
 
+
 padding:20px;
 
-}
-
-
-
-.block h2{
-
-color:#e4002b;
-
-margin:25px 0 15px;
 
 }
+
 
 
 
 .products{
 
+
 display:grid;
 
-grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+grid-template-columns:
+
+repeat(auto-fit,minmax(220px,1fr));
 
 gap:15px;
 
+
 }
+
+
+
+
 
 
 
 .card{
 
-background:white;
 
-padding:15px;
-
-border-radius:20px;
-
-box-shadow:0 5px 15px #ddd;
-
-}
-
-
-
-.card p{
-
-color:#e4002b;
-
-font-weight:bold;
-
-}
-
-
-
-.cart,
-.booking,
-.info{
-
-background:white;
-
-margin:20px;
+background:#181818;
 
 padding:20px;
 
 border-radius:20px;
 
+box-shadow:0 5px 20px #000;
+
+animation:cardShow .5s ease;
+
+transition:.3s;
+
+
 }
+
+
+
+
+
+.card:hover{
+
+
+transform:translateY(-8px);
+
+
+}
+
+
+
+
+
+
+@keyframes cardShow{
+
+
+from{
+
+
+opacity:0;
+
+transform:translateY(30px);
+
+
+}
+
+
+
+to{
+
+
+opacity:1;
+
+transform:translateY(0);
+
+
+}
+
+
+}
+
+
+
+
+
+
+
+
+.card h3{
+
+
+margin-bottom:10px;
+
+
+}
+
+
+
+
+
+
+.card p{
+
+
+color:#ff0033;
+
+font-size:20px;
+
+font-weight:bold;
+
+
+}
+
+
+
+
+
+
+
+
+.about,
+.service,
+.booking,
+.cart,
+.info,
+.working,
+.location{
+
+
+background:#151515;
+
+margin:20px;
+
+padding:25px;
+
+border-radius:25px;
+
+box-shadow:0 5px 20px #000;
+
+animation:slideUp .7s ease;
+
+
+}
+
+
+
+
+
+
+
+@keyframes slideUp{
+
+
+from{
+
+
+opacity:0;
+
+transform:translateY(50px);
+
+
+}
+
+
+
+to{
+
+
+opacity:1;
+
+transform:translateY(0);
+
+
+}
+
+
+}
+
+
+
+
+
+
+h2{
+
+
+color:#e4002b;
+
+margin-bottom:15px;
+
+
+}
+
+
+
+
 
 
 
 input{
 
-padding:15px;
-
-border-radius:15px;
-
-border:1px solid #ccc;
 
 width:100%;
 
+padding:15px;
+
 margin:10px 0;
+
+border-radius:15px;
+
+border:1px solid #333;
+
+background:#222;
+
+color:white;
+
 
 }
 
 
 
-.pay{
 
-margin-top:20px;
 
-background:#eee;
+
+
+.payment{
+
+
+background:#222;
 
 padding:15px;
 
 border-radius:15px;
 
+margin-top:15px;
+
+
 }
+
+
+
+
 
 
 
 nav{
 
+
 position:fixed;
 
 bottom:0;
 
+left:0;
+
 width:100%;
 
-background:white;
+background:#111;
 
 display:flex;
 
@@ -235,13 +566,22 @@ justify-content:space-around;
 
 padding:15px;
 
+box-shadow:0 -5px 20px #000;
+
+
 }
+
+
+
+
 
 
 nav button{
 
-font-size:25px;
 
 background:none;
+
+font-size:25px;
+
 
 }
