@@ -3,95 +3,213 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>UR KFC | Ukraine RP</title>
+
 <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
 <header>
-    <div class="logo">
-        <span class="ur">UR</span>
-        <span>|</span>
-        <span class="kfc">KFC</span>
-    </div>
-    <div class="rp">UKRAINE RP</div>
+
+<div class="logo">
+<span class="ur">UR</span>
+<span>KFC</span>
+</div>
+
+<div class="rp">
+UKRAINE RP
+</div>
+
 </header>
 
+
 <section class="hero">
-    <h1>Смачна курка.<br>Відмінний сервіс.</h1>
-    <button onclick="scrollToMenu()">Переглянути меню</button>
+
+<h1>
+Смачна курка.<br>
+Відмінний сервіс.
+</h1>
+
+<button onclick="scrollToMenu()">
+Переглянути меню
+</button>
+
 </section>
+
+
 
 <section id="menu">
 
-<h2>🍔 Бургери</h2>
+<h2>🍔 Меню</h2>
 
-<div class="products">
-
-<div class="card">
-<img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd">
-<h3>Чізбургер</h3>
-<p>300 грн</p>
-</div>
-
-<div class="card">
-<img src="https://images.unsplash.com/photo-1550547660-d9450f859349">
-<h3>Гетьман Бургер ⭐</h3>
-<p>1200 грн</p>
-</div>
-
-</div>
-
-<h2>🍗 Курка</h2>
-
-<div class="products">
-
-<div class="card">
-<img src="https://images.unsplash.com/photo-1626645738196-c2a7c87a8f58">
-<h3>3 Стріпси</h3>
-<p>500 грн</p>
-</div>
-
-<div class="card">
-<img src="https://images.unsplash.com/photo-1562967916-eb82221dfb92">
-<h3>9 Нагетсів</h3>
-<p>600 грн</p>
-</div>
-
-</div>
-
-<h2>🥤 Напої</h2>
-
-<div class="products">
-
-<div class="card">
-<img src="https://images.unsplash.com/photo-1629203851122-3726ecdf080e">
-<h3>Узвар ⭐</h3>
-<p>500 грн</p>
-</div>
-
-<div class="card">
-<img src="https://images.unsplash.com/photo-1581636625402-29b2a704ef13">
-<h3>Козак Energy ⭐</h3>
-<p>1000 грн</p>
-</div>
-
-</div>
+<div id="products" class="products"></div>
 
 </section>
+
+
+
+<section class="cart">
+
+<h2>🛒 Ваша корзина</h2>
+
+<div id="cartItems">
+Корзина порожня
+</div>
+
+
+<h3>
+Їжа: <span id="foodPrice">0</span> грн
+</h3>
+
+
+<label>
+Чайові:
+</label>
+
+<input 
+type="number"
+id="tips"
+placeholder="Введіть чайові">
+
+
+<h2>
+Разом:
+<span id="total">
+0
+</span> грн
+</h2>
+
+
+<select id="type">
+
+<option value="Їжа">
+🍗 Замовлення їжі
+</option>
+
+<option value="Бронювання столика">
+🪑 Бронювання столика
+</option>
+
+</select>
+
+
+<input 
+id="delivery"
+placeholder="Адреса доставки">
+
+
+<input 
+id="time"
+placeholder="Час">
+
+
+<button onclick="telegramOrder()">
+Замовити через Telegram
+</button>
+
+
+<p class="pay">
+
+💳 Оплата:<br>
+
+<strong>
+Carlson9990
+</strong>
+
+<br>
+
+Власник: KFC UR
+
+</p>
+
+
+</section>
+
+
+
+
+<section class="info">
+
+
+<h2>
+📋 Як замовити
+</h2>
+
+
+<p>
+
+1. Зробіть скріншот корзини
+
+<br><br>
+
+2. Натисніть кнопку замовити через Telegram
+
+<br><br>
+
+3. Напишіть що бажаєте:
+їжу або забронювати столик
+
+<br><br>
+
+4. Надішліть скріншот корзини
+
+<br><br>
+
+5. Вкажіть локацію якщо доставка
+
+<br><br>
+
+6. Оплатіть по реквізитам
+
+</p>
+
+
+</section>
+
+
+
 
 <section class="location">
-<h2>📍 Де нас знайти?</h2>
-<p>Головний вокзал Ukraine RP</p>
-<p>Працюємо 7 днів в тиждень </p>
+
+<h2>
+📍 Де нас знайти?
+</h2>
+
+<p>
+Головний вокзал Ukraine RP
+</p>
+
+<p>
+Працюємо 7 днів в тиждень
+</p>
+
+
 </section>
 
-<nav class="bottom-nav">
-<button>🏠</button>
-<button>🍔</button>
-<button>📍</button>
+
+
+
+<nav class="bottom">
+
+<button onclick="scrollToMenu()">
+🍔
+</button>
+
+<button onclick="scrollToCart()">
+🛒
+</button>
+
+<button>
+📍
+</button>
+
 </nav>
 
+
+
 <script src="script.js"></script>
+
 </body>
 </html>
