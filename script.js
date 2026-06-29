@@ -1,11 +1,14 @@
-const telegram="https://t.me/Duf7484";
+const telegram = "https://t.me/Duf7484";
 
 
-let cart=[];
+let cart = [];
 
 
 
-let menu={
+
+
+let menu = {
+
 
 
 burgers:[
@@ -30,6 +33,8 @@ burgers:[
 
 
 
+
+
 chicken:[
 
 ["3 Стріпси",500],
@@ -44,6 +49,8 @@ chicken:[
 
 
 
+
+
 garnish:[
 
 ["Картопля Фрі",300],
@@ -55,6 +62,8 @@ garnish:[
 ["Барбекю соус",300]
 
 ],
+
+
 
 
 
@@ -78,6 +87,8 @@ drinks:[
 
 
 
+
+
 combo:[
 
 ["Зінгер Комбо",1200],
@@ -91,7 +102,11 @@ combo:[
 ]
 
 
+
 };
+
+
+
 
 
 
@@ -109,21 +124,21 @@ render(menu[cat]);
 
 
 
-
 function render(list){
 
 
-let box=document.getElementById("menu");
+let box = document.getElementById("menu");
 
 
-box.innerHTML="";
+box.innerHTML = "";
 
 
 
-let div=document.createElement("div");
+let div = document.createElement("div");
 
 
-div.className="products";
+div.className = "products";
+
 
 
 
@@ -131,7 +146,7 @@ div.className="products";
 list.forEach(item=>{
 
 
-div.innerHTML+=`
+div.innerHTML += `
 
 <div class="card">
 
@@ -141,6 +156,7 @@ div.innerHTML+=`
 ${item[0]}
 
 </h3>
+
 
 
 <p>
@@ -173,33 +189,23 @@ box.appendChild(div);
 
 
 }
-
-
-
-
-
-
-
-
-
 function add(name,price){
 
 
-let currentTotal=0;
-
+let currentTotal = 0;
 
 
 cart.forEach(item=>{
 
 
-currentTotal+=item[1];
+currentTotal += item[1];
 
 
 });
 
 
 
-let tips=Number(
+let tips = Number(
 
 document.getElementById("tips").value
 
@@ -209,7 +215,7 @@ document.getElementById("tips").value
 
 
 
-if(currentTotal+price+tips>8000){
+if(currentTotal + price + tips > 8000){
 
 
 alert(
@@ -235,9 +241,7 @@ cart.push([name,price]);
 update();
 
 
-
 }
-
 
 
 
@@ -249,20 +253,22 @@ update();
 function addVIP(){
 
 
-let current=0;
+let current = 0;
 
 
 cart.forEach(i=>{
 
 
-current+=i[1];
+current += i[1];
 
 
 });
 
 
 
-if(current+1500>8000){
+
+
+if(current + 1500 > 8000){
 
 
 alert(
@@ -276,6 +282,8 @@ return;
 
 
 }
+
+
 
 
 
@@ -304,25 +312,26 @@ function update(){
 
 
 
-let box=document.getElementById("cart");
+let box = document.getElementById("cart");
 
 
-box.innerHTML="";
+box.innerHTML = "";
 
 
 
-let sum=0;
+let sum = 0;
+
 
 
 
 cart.forEach(item=>{
 
 
-sum+=item[1];
+sum += item[1];
 
 
 
-box.innerHTML+=`
+box.innerHTML += `
 
 
 <p>
@@ -340,7 +349,9 @@ ${item[0]} - ${item[1]} грн
 
 
 
-let tips=Number(
+
+
+let tips = Number(
 
 document.getElementById("tips").value
 
@@ -348,11 +359,13 @@ document.getElementById("tips").value
 
 
 
-document.getElementById("food").innerHTML=sum;
+
+
+document.getElementById("food").innerHTML = sum;
 
 
 
-document.getElementById("total").innerHTML=sum+tips;
+document.getElementById("total").innerHTML = sum + tips;
 
 
 
@@ -365,12 +378,11 @@ document.getElementById("total").innerHTML=sum+tips;
 
 
 
-
 function order(){
 
 
 
-let total=Number(
+let total = Number(
 
 document.getElementById("total").innerHTML
 
@@ -380,7 +392,8 @@ document.getElementById("total").innerHTML
 
 
 
-if(total<1000){
+
+if(total < 1000){
 
 
 alert(
@@ -399,7 +412,7 @@ return;
 
 
 
-if(total>8000){
+if(total > 8000){
 
 
 alert(
@@ -413,6 +426,7 @@ return;
 
 
 }
+
 
 
 
@@ -443,11 +457,12 @@ window.open(telegram);
 
 
 
+
 function searchFood(){
 
 
 
-let text=document
+let text = document
 
 .getElementById("search")
 
@@ -457,7 +472,11 @@ let text=document
 
 
 
-let all=[];
+
+
+let all = [];
+
+
 
 
 
@@ -475,15 +494,18 @@ all.push(...x);
 
 
 
+
 render(
 
 all.filter(item=>
+
 
 item[0]
 
 .toLowerCase()
 
 .includes(text)
+
 
 )
 
@@ -522,6 +544,8 @@ behavior:"smooth"
 
 
 
+
+
 function scrollCart(){
 
 
@@ -543,6 +567,8 @@ behavior:"smooth"
 
 
 
+
+
 function scrollLocation(){
 
 
@@ -558,6 +584,9 @@ behavior:"smooth"
 
 
 }
+
+
+
 
 
 
