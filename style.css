@@ -1,116 +1,214 @@
 *{
+
 margin:0;
 padding:0;
 box-sizing:border-box;
 font-family:Arial,sans-serif;
+
 }
+
+
+
+html{
+
+scroll-behavior:smooth;
+
+}
+
+
+
 
 
 body{
 
-background:#0b0b0b;
+background:#080808;
 color:white;
 padding-bottom:90px;
-animation:pageShow .7s ease;
+animation:pageShow .8s ease;
 
 }
+
+
 
 
 
 @keyframes pageShow{
 
 from{
+
 opacity:0;
+
 }
 
 to{
+
 opacity:1;
+
 }
 
 }
+
 
 
 
 
 header{
 
-background:#111;
 
-padding:20px;
+background:
+
+linear-gradient(135deg,#111,#050505);
+
+
+padding:25px;
+
 
 text-align:center;
 
-box-shadow:0 5px 20px #000;
+
+box-shadow:
+
+0 10px 40px #000;
+
+
+border-bottom:
+
+1px solid #e4002b;
+
 
 }
+
+
+
 
 
 
 .logo{
 
-font-size:45px;
+
+font-size:55px;
+
 
 font-weight:900;
 
+
+letter-spacing:2px;
+
+
+animation:logoAnim 1s ease;
+
+
 }
+
+
 
 
 
 .logo span{
 
+
 color:#e4002b;
 
+
 }
+
+
+
 
 
 
 .rp{
 
+
+margin-top:8px;
+
+
 color:#e4002b;
+
 
 font-weight:bold;
 
-letter-spacing:5px;
+
+letter-spacing:6px;
+
 
 }
+
+
 
 
 
 
 .hero{
 
-height:330px;
+
+height:380px;
+
 
 background:
 
-linear-gradient(#0009,#0009),
+
+linear-gradient(#000b,#000b),
 
 url("https://images.unsplash.com/photo-1568901346375-23c9450c58cd");
 
+
 background-size:cover;
+
 
 background-position:center;
 
+
 display:flex;
+
 
 flex-direction:column;
 
+
 justify-content:center;
+
 
 align-items:center;
 
+
 text-align:center;
+
+
+padding:20px;
+
 
 }
 
 
 
 
+
+
 .hero h1{
 
-font-size:35px;
+
+font-size:42px;
+
 
 animation:textMove 1s ease;
+
+
+}
+
+
+
+
+.hero p{
+
+
+font-size:20px;
+
+
+margin:15px;
+
+
+animation:fadeUp 1.2s ease;
+
 
 }
 
@@ -122,27 +220,30 @@ animation:textMove 1s ease;
 
 from{
 
+
 opacity:0;
+
 
 transform:translateY(-40px);
 
+
 }
+
 
 
 to{
 
+
 opacity:1;
+
 
 transform:translateY(0);
 
-}
-
 
 }
 
 
-
-
+}
 button{
 
 
@@ -152,20 +253,25 @@ color:white;
 
 border:none;
 
-padding:14px 20px;
+padding:15px 25px;
 
-border-radius:30px;
-
-margin:5px;
+border-radius:35px;
 
 font-size:16px;
 
 cursor:pointer;
 
+margin:6px;
+
 transition:.3s;
+
+position:relative;
+
+overflow:hidden;
 
 
 }
+
 
 
 
@@ -175,8 +281,14 @@ button:hover{
 
 transform:scale(1.08);
 
+box-shadow:
+
+0 0 25px #e4002b;
+
 
 }
+
+
 
 
 
@@ -191,45 +303,51 @@ transform:scale(.95);
 
 
 
-.hero button{
 
 
-animation:pulse 2s infinite;
+
+button::after{
+
+
+content:"";
+
+position:absolute;
+
+width:0;
+
+height:0;
+
+background:white;
+
+opacity:.2;
+
+border-radius:50%;
+
+left:50%;
+
+top:50%;
+
+transform:translate(-50%,-50%);
+
+transition:.5s;
+
+
+}
+
+
+
+
+
+button:hover::after{
+
+
+width:250px;
+
+height:250px;
 
 
 }
 
-
-
-
-
-@keyframes pulse{
-
-
-0%{
-
-box-shadow:0 0 0 0 #e4002b;
-
-}
-
-
-
-70%{
-
-box-shadow:0 0 0 15px transparent;
-
-}
-
-
-
-100%{
-
-box-shadow:0 0 0 0 transparent;
-
-}
-
-
-}
 
 
 
@@ -240,7 +358,7 @@ box-shadow:0 0 0 0 transparent;
 .menu-buttons{
 
 
-padding:20px;
+padding:25px;
 
 text-align:center;
 
@@ -250,14 +368,22 @@ text-align:center;
 
 
 
+.menu-buttons h2,
 
-.menu-buttons h2{
+
+h2{
 
 
 color:#e4002b;
 
+margin-bottom:18px;
+
 
 }
+
+
+
+
 
 
 
@@ -269,13 +395,13 @@ width:90%;
 
 margin:20px;
 
-padding:15px;
+padding:16px;
 
-border-radius:20px;
+background:#171717;
 
 border:1px solid #333;
 
-background:#1c1c1c;
+border-radius:20px;
 
 color:white;
 
@@ -283,6 +409,8 @@ font-size:16px;
 
 
 }
+
+
 
 
 
@@ -300,20 +428,23 @@ padding:20px;
 
 
 
+
+
 .products{
 
 
 display:grid;
 
+
 grid-template-columns:
 
 repeat(auto-fit,minmax(220px,1fr));
 
-gap:15px;
+
+gap:18px;
 
 
 }
-
 
 
 
@@ -323,17 +454,27 @@ gap:15px;
 .card{
 
 
-background:#181818;
+background:
 
-padding:20px;
 
-border-radius:20px;
+linear-gradient(145deg,#1c1c1c,#101010);
 
-box-shadow:0 5px 20px #000;
+
+padding:22px;
+
+
+border-radius:25px;
+
+
+box-shadow:
+
+0 8px 25px #000;
+
+
+transition:.4s;
+
 
 animation:cardShow .5s ease;
-
-transition:.3s;
 
 
 }
@@ -342,10 +483,34 @@ transition:.3s;
 
 
 
+
+
 .card:hover{
 
 
-transform:translateY(-8px);
+transform:translateY(-10px);
+
+
+box-shadow:
+
+0 0 30px #e4002b;
+
+
+}
+
+
+
+
+
+
+.card p{
+
+
+color:#ff0033;
+
+font-size:21px;
+
+font-weight:bold;
 
 
 }
@@ -363,11 +528,10 @@ from{
 
 opacity:0;
 
-transform:translateY(30px);
+transform:translateY(40px);
 
 
 }
-
 
 
 to{
@@ -388,60 +552,388 @@ transform:translateY(0);
 
 
 
-
-
-.card h3{
-
-
-margin-bottom:10px;
-
-
-}
-
-
-
-
-
-
-.card p{
-
-
-color:#ff0033;
-
-font-size:20px;
-
-font-weight:bold;
-
-
-}
-
-
-
-
-
-
-
-
 .about,
+
 .service,
+
 .booking,
+
 .cart,
+
 .info,
+
 .working,
-.location{
+
+.location,
+
+.partners{
 
 
-background:#151515;
+background:
 
-margin:20px;
 
-padding:25px;
+linear-gradient(145deg,#151515,#0d0d0d);
 
-border-radius:25px;
 
-box-shadow:0 5px 20px #000;
+margin:22px;
+
+
+padding:28px;
+
+
+border-radius:30px;
+
+
+box-shadow:
+
+0 10px 35px #000;
+
 
 animation:slideUp .7s ease;
+
+
+transition:.4s;
+
+
+}
+
+
+
+
+
+.about:hover,
+
+.service:hover,
+
+.booking:hover,
+
+.cart:hover,
+
+.info:hover,
+
+.working:hover,
+
+.location:hover,
+
+.partners:hover{
+
+
+transform:translateY(-8px);
+
+
+}
+.location-card{
+
+
+background:#1b1b1b;
+
+
+padding:20px;
+
+
+border-radius:22px;
+
+
+margin-top:20px;
+
+
+border-left:5px solid #e4002b;
+
+
+box-shadow:
+
+0 5px 20px #000;
+
+
+transition:.3s;
+
+
+}
+
+
+
+
+.location-card:hover{
+
+
+transform:translateX(8px);
+
+
+box-shadow:
+
+0 0 25px #e4002b;
+
+
+}
+
+
+
+
+
+
+
+.partners ul{
+
+
+padding-left:20px;
+
+
+margin:20px 0;
+
+
+}
+
+
+
+
+
+.partners li{
+
+
+margin:12px 0;
+
+
+font-size:17px;
+
+
+}
+
+
+
+
+.partners h3{
+
+
+color:#e4002b;
+
+
+margin-top:25px;
+
+
+}
+
+
+
+
+
+
+
+.cart{
+
+
+border:
+
+1px solid #222;
+
+
+}
+
+
+
+
+#cart p{
+
+
+background:#202020;
+
+
+padding:10px;
+
+
+border-radius:12px;
+
+
+margin:8px 0;
+
+
+}
+
+
+
+
+
+
+
+
+input{
+
+
+width:100%;
+
+
+padding:16px;
+
+
+margin:12px 0;
+
+
+background:#222;
+
+
+color:white;
+
+
+border:1px solid #333;
+
+
+border-radius:18px;
+
+
+font-size:16px;
+
+
+}
+
+
+
+
+
+
+
+.payment{
+
+
+margin-top:20px;
+
+
+background:#202020;
+
+
+padding:20px;
+
+
+border-radius:20px;
+
+
+border-left:
+
+4px solid #e4002b;
+
+
+}
+
+
+
+
+
+
+
+nav{
+
+
+position:fixed;
+
+
+bottom:0;
+
+
+left:0;
+
+
+width:100%;
+
+
+background:#101010;
+
+
+display:flex;
+
+
+justify-content:space-around;
+
+
+padding:15px;
+
+
+box-shadow:
+
+0 -10px 30px #000;
+
+
+z-index:1000;
+
+
+animation:navUp .7s ease;
+
+
+}
+
+
+
+
+
+nav button{
+
+
+background:none;
+
+
+font-size:28px;
+
+
+padding:5px 15px;
+
+
+}
+
+
+
+
+
+@keyframes navUp{
+
+
+from{
+
+
+transform:translateY(100%);
+
+
+}
+
+
+to{
+
+
+transform:translateY(0);
+
+
+}
+
+
+}
+
+
+
+
+
+
+
+@keyframes logoAnim{
+
+
+from{
+
+
+opacity:0;
+
+
+transform:scale(.5);
+
+
+}
+
+
+to{
+
+
+opacity:1;
+
+
+transform:scale(1);
+
+
+}
 
 
 }
@@ -460,17 +952,18 @@ from{
 
 opacity:0;
 
+
 transform:translateY(50px);
 
 
 }
 
 
-
 to{
 
 
 opacity:1;
+
 
 transform:translateY(0);
 
@@ -482,339 +975,6 @@ transform:translateY(0);
 
 
 
-
-
-
-h2{
-
-
-color:#e4002b;
-
-margin-bottom:15px;
-
-
-}
-
-
-
-
-
-
-
-input{
-
-
-width:100%;
-
-padding:15px;
-
-margin:10px 0;
-
-border-radius:15px;
-
-border:1px solid #333;
-
-background:#222;
-
-color:white;
-
-
-}
-
-
-
-
-
-
-
-.payment{
-
-
-background:#222;
-
-padding:15px;
-
-border-radius:15px;
-
-margin-top:15px;
-
-
-}
-
-
-
-
-
-
-
-nav{
-
-
-position:fixed;
-
-bottom:0;
-
-left:0;
-
-width:100%;
-
-background:#111;
-
-display:flex;
-
-justify-content:space-around;
-
-padding:15px;
-
-box-shadow:0 -5px 20px #000;
-
-
-}
-
-
-
-
-
-
-nav button{
-
-
-background:none;
-
-font-size:25px;
-
-
-}/* ===== EXTRA ANIMATIONS UR KFC ===== */
-
-
-
-/* плавний скрол */
-
-html{
-
-scroll-behavior:smooth;
-
-}
-
-
-
-
-/* всі секції з ефектом появи */
-
-.about,
-.service,
-.booking,
-.cart,
-.info,
-.working,
-.location,
-.menu-buttons{
-
-transition:0.6s;
-
-}
-
-
-
-
-.about:hover,
-.service:hover,
-.booking:hover,
-.cart:hover,
-.info:hover,
-.working:hover,
-.location:hover{
-
-
-transform:translateY(-8px);
-
-box-shadow:
-
-0 15px 40px #000;
-
-
-}
-
-
-
-
-
-/* анімація меню кнопок */
-
-
-.menu-buttons button{
-
-
-animation:menuPop .5s ease;
-
-}
-
-
-
-@keyframes menuPop{
-
-
-from{
-
-opacity:0;
-
-transform:scale(.7);
-
-}
-
-
-to{
-
-opacity:1;
-
-transform:scale(1);
-
-}
-
-
-}
-
-
-
-
-
-
-
-/* ефект появи кнопок */
-
-
-button{
-
-
-position:relative;
-
-overflow:hidden;
-
-
-}
-
-
-
-button::after{
-
-
-content:"";
-
-position:absolute;
-
-width:0;
-
-height:0;
-
-background:white;
-
-opacity:.25;
-
-border-radius:50%;
-
-left:50%;
-
-top:50%;
-
-transform:translate(-50%,-50%);
-
-transition:.5s;
-
-
-}
-
-
-
-button:hover::after{
-
-
-width:200px;
-
-height:200px;
-
-
-}
-
-
-
-
-
-
-
-/* картки їжі світяться */
-
-
-.card:hover{
-
-
-box-shadow:
-
-0 0 25px #e4002b;
-
-
-}
-
-
-
-
-
-/* корзина рухається */
-
-
-.cart{
-
-
-animation:
-
-cartMove 1s ease;
-
-
-}
-
-
-
-@keyframes cartMove{
-
-
-from{
-
-opacity:0;
-
-transform:translateX(80px);
-
-
-}
-
-
-to{
-
-opacity:1;
-
-transform:translateX(0);
-
-
-}
-
-
-}
-
-
-
-
-
-
-/* геройний текст */
-
-
-.hero p{
-
-
-animation:
-
-fadeUp 1.2s ease;
-
-
-}
 
 
 
@@ -828,6 +988,7 @@ from{
 
 opacity:0;
 
+
 transform:translateY(30px);
 
 
@@ -839,6 +1000,7 @@ to{
 
 opacity:1;
 
+
 transform:translateY(0);
 
 
@@ -846,21 +1008,53 @@ transform:translateY(0);
 
 
 }
+@media(max-width:600px){
+
+
+.logo{
+
+
+font-size:42px;
+
+
+}
 
 
 
+.hero{
+
+
+height:330px;
+
+
+}
 
 
 
-/* меню появляється знизу */
+.hero h1{
 
 
-.products .card{
+font-size:32px;
 
 
-animation:
+}
 
-foodShow .6s ease;
+
+
+.menu-buttons button{
+
+
+width:90%;
+
+
+}
+
+
+
+.products{
+
+
+grid-template-columns:1fr;
 
 
 }
@@ -868,74 +1062,151 @@ foodShow .6s ease;
 
 
 
-@keyframes foodShow{
+.about,
+
+.service,
+
+.booking,
+
+.cart,
+
+.info,
+
+.working,
+
+.location,
+
+.partners{
+
+
+margin:15px;
+
+
+padding:20px;
+
+
+}
+
+
+
+
+
+.partners li{
+
+
+font-size:15px;
+
+
+}
+
+
+
+
+nav button{
+
+
+font-size:22px;
+
+
+}
+
+
+
+}
+
+
+
+
+
+
+
+/* Преміальний ефект мережі */
+
+
+
+.partners{
+
+
+background:
+
+
+linear-gradient(145deg,#1b1b1b,#090909);
+
+
+border:
+
+1px solid #e4002b;
+
+
+}
+
+
+
+
+.partners button{
+
+
+margin-top:20px;
+
+
+}
+
+
+
+
+
+.location{
+
+
+border:
+
+1px solid #222;
+
+
+}
+
+
+
+
+.working h3{
+
+
+color:#e4002b;
+
+
+font-size:28px;
+
+
+}
+
+
+
+
+
+.hero button{
+
+
+animation:pulse 2s infinite;
+
+
+}
+
+
+
+
+
+
+@keyframes pulse{
 
 
 0%{
 
 
-opacity:0;
-
-transform:
-
-translateY(50px)
-
-rotate(3deg);
+box-shadow:0 0 0 0 #e4002b;
 
 
 }
 
-
-100%{
-
-
-opacity:1;
-
-transform:
-
-translateY(0)
-
-rotate(0);
-
-
-}
-
-
-}
-
-
-
-
-
-
-
-/* VIP кнопка */
-
-
-.booking button:nth-child(3){
-
-
-animation:
-
-vipPulse 2s infinite;
-
-
-}
-
-
-
-
-
-@keyframes vipPulse{
-
-
-0%{
-
-
-box-shadow:0 0 0 0 #ffd700;
-
-
-}
 
 
 70%{
@@ -945,6 +1216,7 @@ box-shadow:0 0 0 20px transparent;
 
 
 }
+
 
 
 100%{
@@ -962,87 +1234,10 @@ box-shadow:0 0 0 0 transparent;
 
 
 
-
-/* нижня навігація */
-
-
-nav{
+section{
 
 
-animation:
-
-navUp .7s ease;
-
-
-}
-
-
-
-
-@keyframes navUp{
-
-
-from{
-
-transform:translateY(100%);
-
-}
-
-
-to{
-
-transform:translateY(0);
-
-}
-
-
-}
-
-
-
-
-
-
-/* логотип */
-
-
-.logo{
-
-
-animation:
-
-logoAnim 1s ease;
-
-
-}
-
-
-
-
-
-@keyframes logoAnim{
-
-
-from{
-
-
-opacity:0;
-
-transform:scale(.5) rotate(-20deg);
-
-
-}
-
-
-to{
-
-
-opacity:1;
-
-transform:scale(1) rotate(0);
-
-
-}
+overflow:hidden;
 
 
 }
