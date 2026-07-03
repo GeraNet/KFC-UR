@@ -2,115 +2,102 @@
 margin:0;
 padding:0;
 box-sizing:border-box;
-font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial;
-}
-
-html{
-scroll-behavior:smooth;
+font-family:Arial,sans-serif;
 }
 
 body{
-background:#0b0c10;
+background:#0b0b0b;
 color:#fff;
 padding-bottom:90px;
-overflow-x:hidden;
 }
 
 /* ================= HEADER ================= */
 
 header{
-position:sticky;
-top:0;
-z-index:1000;
-background:rgba(10,10,10,.75);
-backdrop-filter:blur(14px);
-border-bottom:1px solid rgba(255,255,255,.08);
-padding:18px;
+background:#111;
+padding:20px;
 text-align:center;
+box-shadow:0 10px 30px #000;
 }
 
 .logo{
-font-size:42px;
+font-size:46px;
 font-weight:900;
-letter-spacing:2px;
 }
 
 .logo span{
-color:#ff2d55;
+color:#e4002b;
+text-shadow:0 0 15px #e4002b;
 }
 
 .rp{
-font-size:12px;
-opacity:.7;
-letter-spacing:4px;
-margin-top:5px;
+color:#e4002b;
+letter-spacing:5px;
+font-weight:bold;
 }
 
 /* ================= HERO ================= */
 
 .hero{
-min-height:420px;
+height:340px;
+background:
+linear-gradient(#0009,#000c),
+url("https://images.unsplash.com/photo-1568901346375-23c9450c58cd");
+background-size:cover;
+background-position:center;
 display:flex;
 flex-direction:column;
 justify-content:center;
 align-items:center;
 text-align:center;
-padding:25px;
-
-background:
-linear-gradient(180deg,rgba(0,0,0,.4),rgba(0,0,0,.85)),
-url("https://images.unsplash.com/photo-1568901346375-23c9450c58cd");
-
-background-size:cover;
-background-position:center;
 }
 
 .hero h1{
-font-size:40px;
-font-weight:900;
-line-height:1.1;
+font-size:38px;
+text-shadow:0 10px 30px #000;
 }
 
 .hero p{
-opacity:.8;
+opacity:.85;
 margin-top:10px;
-font-size:16px;
 }
 
 /* ================= BUTTONS ================= */
 
 button{
-background:#ff2d55;
+background:#e4002b;
 color:#fff;
 border:none;
-padding:14px 18px;
-border-radius:14px;
-font-weight:600;
+padding:14px 20px;
+border-radius:25px;
+margin:5px;
 cursor:pointer;
-transition:.2s ease;
-touch-action:manipulation;
+transition:.2s;
 position:relative;
 overflow:hidden;
 }
 
 button:active{
-transform:scale(.96);
+transform:scale(.95);
 }
 
+/* ripple */
 button::after{
 content:"";
 position:absolute;
-top:-50%;
-left:-50%;
-width:200%;
-height:200%;
-background:radial-gradient(circle,rgba(255,255,255,.2),transparent);
-opacity:0;
+width:0;
+height:0;
+background:rgba(255,255,255,.2);
+border-radius:50%;
+left:50%;
+top:50%;
+transform:translate(-50%,-50%);
 transition:.4s;
 }
 
 button:hover::after{
-opacity:1;
+width:200px;
+height:200px;
 }
 
 /* ================= SECTIONS ================= */
@@ -123,17 +110,17 @@ opacity:1;
 .working,
 .location,
 .partners{
+background:#151515;
 margin:16px;
 padding:18px;
-background:#121318;
 border-radius:18px;
-border:1px solid rgba(255,255,255,.06);
-animation:fadeIn .25s ease;
+border:1px solid #222;
+box-shadow:0 10px 25px #000;
 }
 
 h2{
-font-size:22px;
-margin-bottom:10px;
+color:#e4002b;
+margin-bottom:12px;
 }
 
 /* ================= MENU ================= */
@@ -143,45 +130,32 @@ padding:20px;
 text-align:center;
 }
 
-.menu-buttons h2{
-font-size:24px;
-margin-bottom:12px;
-}
-
-.menu-buttons button{
-margin:5px;
-}
-
-/* ================= SEARCH ================= */
-
 .search{
 width:92%;
 margin:15px auto;
 display:block;
 padding:14px;
 border-radius:12px;
-border:1px solid rgba(255,255,255,.1);
-background:#111;
+border:1px solid #333;
+background:#1c1c1c;
 color:#fff;
-outline:none;
 }
 
 /* ================= PRODUCTS ================= */
 
 .products{
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(160px,1fr));
+grid-template-columns:repeat(2,1fr);
 gap:12px;
 padding:15px;
 }
 
 .card{
-background:#14151a;
-border:1px solid rgba(255,255,255,.06);
-border-radius:16px;
-padding:14px;
-transition:.2s ease;
-will-change:transform;
+background:#181818;
+padding:15px;
+border-radius:15px;
+border:1px solid #222;
+transition:.2s;
 }
 
 .card h3{
@@ -189,13 +163,12 @@ font-size:16px;
 }
 
 .card p{
-color:#ff4d6d;
-font-weight:700;
-margin-top:6px;
+color:#ff0033;
+font-weight:bold;
 }
 
 .card:active{
-transform:scale(.98);
+transform:scale(.97);
 }
 
 /* ================= LIST ================= */
@@ -205,30 +178,29 @@ transform:scale(.98);
 list-style:none;
 padding:10px;
 margin:8px 0;
-background:#1a1b22;
+background:#1a1a1a;
+border-left:3px solid #e4002b;
 border-radius:10px;
-border-left:3px solid #ff2d55;
 }
 
-/* ================= LOCATION CARD ================= */
+/* ================= LOCATION ================= */
 
 .location-card{
 padding:14px;
-background:#1a1b22;
-border-radius:14px;
-border:1px solid rgba(255,45,85,.3);
+background:#1a1a1a;
+border-radius:12px;
+border:1px solid #333;
 }
 
-/* ================= CART ================= */
+/* ================= CART INPUT ================= */
 
-.cart input,
 input{
 width:100%;
 padding:14px;
 margin:10px 0;
 border-radius:12px;
-border:1px solid rgba(255,255,255,.1);
-background:#111;
+border:1px solid #333;
+background:#222;
 color:#fff;
 }
 
@@ -236,77 +208,44 @@ color:#fff;
 
 nav{
 position:fixed;
-bottom:10px;
-left:50%;
-transform:translateX(-50%);
+bottom:0;
+left:0;
+width:100%;
+background:#111;
 display:flex;
-gap:10px;
-background:rgba(20,20,20,.8);
-backdrop-filter:blur(10px);
-padding:10px;
-border-radius:999px;
-border:1px solid rgba(255,255,255,.08);
-z-index:1000;
+justify-content:space-around;
+padding:14px;
+box-shadow:0 -10px 25px #000;
 }
 
 nav button{
 background:none;
-font-size:20px;
-padding:10px;
+font-size:22px;
 }
 
-/* ================= ANIMATION ================= */
+/* ===================================================== */
+/* 📱 MOBILE FIRST (default above) */
+/* ===================================================== */
 
-@keyframes fadeIn{
-from{
-opacity:0;
-transform:translateY(8px);
-}
-to{
-opacity:1;
-transform:translateY(0);
-}
-}
 
-/* ================= MOBILE OPTIMIZATION ================= */
 
-@media (max-width:600px){
+/* ===================================================== */
+/* 💻 PC MODE (2026 PREMIUM UI) */
+/* ===================================================== */
 
-.hero h1{
-font-size:30px;
-}
-
-.products{
-grid-template-columns:repeat(2,1fr);
-}
-
-.about,
-.service,
-.booking,
-.cart,
-.info,
-.working,
-.location,
-.partners{
-margin:12px;
-padding:14px;
-}
-}
-
-/* ================= PC ULTRA MODE 3D ================= */
-
-@media (min-width:900px){
+@media (min-width: 900px){
 
 body{
 background:
 radial-gradient(circle at top,#2a0010,#050505 60%),
-radial-gradient(circle at bottom,#0a0a0a,#000);
+radial-gradient(circle at bottom,#000,#0a0a0a);
 }
 
+/* HERO BIG */
 .hero h1{
-font-size:62px;
+font-size:64px;
+text-shadow:0 20px 60px #000;
 animation:float 6s ease-in-out infinite;
-text-shadow:0 20px 50px rgba(0,0,0,.6);
 }
 
 @keyframes float{
@@ -314,9 +253,10 @@ text-shadow:0 20px 50px rgba(0,0,0,.6);
 50%{transform:translateY(-10px);}
 }
 
+/* CARDS 3D */
 .card{
-transition:.4s ease;
-box-shadow:0 20px 50px rgba(0,0,0,.5);
+transition:.4s;
+box-shadow:0 20px 50px rgba(0,0,0,.6);
 }
 
 .card:hover{
@@ -325,13 +265,10 @@ perspective(800px)
 rotateX(6deg)
 rotateY(-6deg)
 translateY(-10px);
-box-shadow:0 30px 80px rgba(255,45,85,.25);
+box-shadow:0 30px 80px rgba(228,0,43,.25);
 }
 
-button{
-transition:.3s;
-}
-
+/* SECTIONS LIFT */
 .about:hover,
 .service:hover,
 .booking:hover,
@@ -340,10 +277,19 @@ transition:.3s;
 .working:hover,
 .location:hover,
 .partners:hover{
-transform:translateY(-6px) scale(1.01);
+transform:translateY(-6px);
+box-shadow:0 20px 60px rgba(0,0,0,.7);
 }
 
+/* BUTTON GLOW */
+button:hover{
+box-shadow:0 15px 35px rgba(228,0,43,.4);
+transform:scale(1.05);
+}
+
+/* NAV GLOW */
 nav{
-box-shadow:0 0 30px rgba(255,45,85,.2);
+backdrop-filter:blur(10px);
+box-shadow:0 0 30px rgba(228,0,43,.2);
 }
 }
