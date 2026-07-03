@@ -10,104 +10,133 @@ scroll-behavior:smooth;
 }
 
 body{
-background:#0a0a0d;
+background:#07070a;
 color:#fff;
-padding-bottom:90px;
+padding-bottom:100px;
+overflow-x:hidden;
 }
 
-/* ================= TOP BAR ================= */
+/* ================= GLOBAL BACKGROUND ================= */
+
+body::before{
+content:"";
+position:fixed;
+inset:0;
+background:
+radial-gradient(circle at 20% 10%, rgba(255,45,85,.25), transparent 40%),
+radial-gradient(circle at 80% 90%, rgba(255,255,255,.05), transparent 50%),
+linear-gradient(180deg,#050508,#0b0b10);
+z-index:-1;
+}
+
+/* ================= HEADER (PREMIUM FLOAT) ================= */
 
 header{
 position:sticky;
 top:0;
-z-index:1000;
-background:rgba(15,15,18,.7);
-backdrop-filter:blur(18px);
-border-bottom:1px solid rgba(255,255,255,.06);
-padding:18px;
+z-index:999;
+padding:16px;
 text-align:center;
+background:rgba(10,10,15,.6);
+backdrop-filter:blur(20px);
+border-bottom:1px solid rgba(255,255,255,.06);
 }
 
 .logo{
-font-size:44px;
+font-size:46px;
 font-weight:900;
 letter-spacing:1px;
 }
 
 .logo span{
 color:#ff2d55;
+text-shadow:0 0 20px rgba(255,45,85,.4);
 }
 
 .rp{
-font-size:12px;
-letter-spacing:4px;
+font-size:11px;
+letter-spacing:5px;
 opacity:.6;
 margin-top:4px;
 }
 
-/* ================= HERO ================= */
+/* ================= HERO (WOW HERO) ================= */
 
 .hero{
-min-height:420px;
+min-height:460px;
 display:flex;
 flex-direction:column;
 justify-content:center;
 align-items:center;
 text-align:center;
 padding:30px;
+position:relative;
+}
 
+.hero::after{
+content:"";
+position:absolute;
+inset:0;
 background:
-linear-gradient(180deg,rgba(0,0,0,.3),rgba(0,0,0,.85)),
 url("https://images.unsplash.com/photo-1568901346375-23c9450c58cd");
-
 background-size:cover;
 background-position:center;
+opacity:.25;
+z-index:-1;
+filter:blur(1px);
+transform:scale(1.05);
 }
 
 .hero h1{
-font-size:52px;
+font-size:58px;
 font-weight:900;
-line-height:1.1;
-letter-spacing:-1px;
+letter-spacing:-2px;
+line-height:1.05;
+text-shadow:0 30px 80px rgba(0,0,0,.6);
+animation:heroIn .8s ease;
 }
 
 .hero p{
+margin-top:12px;
 opacity:.75;
-margin-top:10px;
-font-size:15px;
 }
 
-/* ================= BUTTONS ================= */
+@keyframes heroIn{
+from{opacity:0;transform:translateY(20px);}
+to{opacity:1;transform:translateY(0);}
+}
+
+/* ================= BUTTONS (APPLE-LIKE) ================= */
 
 button{
-background:#ff2d55;
+background:linear-gradient(135deg,#ff2d55,#ff004c);
 color:#fff;
 border:none;
 padding:14px 18px;
-border-radius:14px;
-font-weight:600;
+border-radius:16px;
+font-weight:700;
 cursor:pointer;
 transition:.25s ease;
 position:relative;
 overflow:hidden;
+box-shadow:0 10px 30px rgba(255,45,85,.25);
 }
 
 button:hover{
-transform:translateY(-2px);
-box-shadow:0 12px 30px rgba(255,45,85,.25);
+transform:translateY(-3px);
+box-shadow:0 18px 50px rgba(255,45,85,.35);
 }
 
 button:active{
-transform:scale(.97);
+transform:scale(.96);
 }
 
-/* subtle ripple */
 button::after{
 content:"";
 position:absolute;
 width:0;
 height:0;
-background:rgba(255,255,255,.18);
+background:rgba(255,255,255,.25);
 border-radius:50%;
 top:50%;
 left:50%;
@@ -116,11 +145,11 @@ transition:.5s;
 }
 
 button:hover::after{
-width:240px;
-height:240px;
+width:260px;
+height:260px;
 }
 
-/* ================= SECTIONS ================= */
+/* ================= SECTIONS (GLASS CARDS) ================= */
 
 .about,
 .service,
@@ -130,12 +159,13 @@ height:240px;
 .working,
 .location,
 .partners{
-background:#141419;
 margin:18px;
-padding:22px;
-border-radius:18px;
-border:1px solid rgba(255,255,255,.06);
-box-shadow:0 10px 30px rgba(0,0,0,.4);
+padding:24px;
+border-radius:20px;
+background:rgba(255,255,255,.04);
+border:1px solid rgba(255,255,255,.08);
+backdrop-filter:blur(14px);
+box-shadow:0 20px 60px rgba(0,0,0,.5);
 transition:.25s ease;
 }
 
@@ -147,19 +177,19 @@ transition:.25s ease;
 .working:hover,
 .location:hover,
 .partners:hover{
-transform:translateY(-4px);
+transform:translateY(-6px);
 }
 
 /* ================= TITLES ================= */
 
 h2{
-font-size:22px;
-margin-bottom:12px;
+font-size:24px;
+margin-bottom:14px;
 color:#ff2d55;
-letter-spacing:-0.3px;
+letter-spacing:-0.5px;
 }
 
-/* ================= MENU ================= */
+/* ================= MENU SYSTEM ================= */
 
 .menu-buttons{
 padding:20px;
@@ -167,57 +197,72 @@ text-align:center;
 }
 
 .menu-buttons button{
-margin:5px;
-background:#1a1a20;
-border:1px solid rgba(255,255,255,.06);
+margin:6px;
+background:rgba(255,255,255,.06);
+border:1px solid rgba(255,255,255,.08);
 }
 
 /* ================= INPUT ================= */
 
 .search{
 width:92%;
-margin:16px auto;
+margin:18px auto;
 display:block;
 padding:14px;
-border-radius:12px;
+border-radius:14px;
+background:rgba(255,255,255,.05);
 border:1px solid rgba(255,255,255,.08);
-background:#101014;
 color:#fff;
 outline:none;
 }
 
-/* ================= PRODUCTS ================= */
+/* ================= PRODUCTS (BIG WOW GRID) ================= */
 
 .products{
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(190px,1fr));
-gap:12px;
-padding:16px;
+grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+gap:14px;
+padding:18px;
 }
 
 .card{
-background:#15151b;
-border:1px solid rgba(255,255,255,.06);
-border-radius:16px;
+background:rgba(255,255,255,.04);
+border:1px solid rgba(255,255,255,.08);
+border-radius:18px;
 padding:16px;
-transition:.25s ease;
+transition:.3s ease;
+position:relative;
+overflow:hidden;
+}
+
+.card::before{
+content:"";
+position:absolute;
+inset:-50%;
+background:radial-gradient(circle,rgba(255,45,85,.2),transparent 60%);
+opacity:0;
+transition:.4s;
+}
+
+.card:hover::before{
+opacity:1;
 }
 
 .card:hover{
-transform:translateY(-6px);
+transform:translateY(-10px) scale(1.02);
+box-shadow:0 25px 70px rgba(0,0,0,.6);
 border-color:rgba(255,45,85,.4);
-box-shadow:0 18px 40px rgba(0,0,0,.5);
 }
 
 .card h3{
 font-size:16px;
-font-weight:700;
+font-weight:800;
 }
 
 .card p{
-margin-top:6px;
+margin-top:8px;
 color:#ff3b5c;
-font-weight:800;
+font-weight:900;
 }
 
 /* ================= LISTS ================= */
@@ -225,18 +270,18 @@ font-weight:800;
 .service li,
 .partners li{
 list-style:none;
-padding:10px 12px;
+padding:12px;
 margin:8px 0;
-background:#1a1a22;
-border-radius:10px;
+background:rgba(255,255,255,.05);
+border-radius:12px;
 border-left:3px solid #ff2d55;
 }
 
-/* ================= LOCATION CARD ================= */
+/* ================= LOCATION ================= */
 
 .location-card{
-padding:14px;
-background:#1a1a22;
+padding:16px;
+background:rgba(255,255,255,.05);
 border-radius:14px;
 border:1px solid rgba(255,255,255,.08);
 }
@@ -247,41 +292,41 @@ input{
 width:100%;
 padding:14px;
 margin:10px 0;
-border-radius:12px;
+border-radius:14px;
+background:rgba(255,255,255,.05);
 border:1px solid rgba(255,255,255,.08);
-background:#101014;
 color:#fff;
 outline:none;
 }
 
-/* ================= NAV ================= */
+/* ================= NAV (FLOATING DOCK) ================= */
 
 nav{
 position:fixed;
-bottom:14px;
+bottom:16px;
 left:50%;
 transform:translateX(-50%);
 display:flex;
 gap:10px;
-background:rgba(20,20,25,.75);
-backdrop-filter:blur(14px);
-padding:10px 12px;
+background:rgba(10,10,15,.6);
+backdrop-filter:blur(20px);
+padding:10px 14px;
 border-radius:999px;
 border:1px solid rgba(255,255,255,.08);
+box-shadow:0 20px 60px rgba(0,0,0,.6);
 }
 
 nav button{
 background:none;
-font-size:20px;
-padding:10px;
+font-size:22px;
 }
 
 /* ================= MOBILE ================= */
 
-@media (max-width:600px){
+@media(max-width:700px){
 
 .hero h1{
-font-size:34px;
+font-size:36px;
 }
 
 .about,
@@ -301,23 +346,19 @@ grid-template-columns:repeat(2,1fr);
 }
 }
 
-/* ================= PC PREMIUM ================= */
+/* ================= PC ULTRA WOW ================= */
 
-@media (min-width:900px){
-
-body{
-background:
-radial-gradient(circle at top,#1b0010,#05050a 60%),
-radial-gradient(circle at bottom,#000,#0a0a10);
-}
+@media(min-width:900px){
 
 .hero h1{
-font-size:68px;
-letter-spacing:-2px;
-text-shadow:0 20px 60px rgba(0,0,0,.6);
+font-size:74px;
 }
 
 .card:hover{
-transform:perspective(900px) rotateX(5deg) rotateY(-5deg);
+transform:perspective(900px) rotateX(6deg) rotateY(-6deg) translateY(-10px);
+}
+
+button:hover{
+transform:translateY(-4px) scale(1.02);
 }
 }
