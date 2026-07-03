@@ -10,146 +10,90 @@ scroll-behavior:smooth;
 }
 
 body{
-background:#07070a;
-color:#fff;
-padding-bottom:100px;
-overflow-x:hidden;
+background:#0a0a0a;
+color:#ffffff;
+padding-bottom:90px;
 }
 
-/* ================= GLOBAL BACKGROUND ================= */
-
-body::before{
-content:"";
-position:fixed;
-inset:0;
-background:
-radial-gradient(circle at 20% 10%, rgba(255,45,85,.25), transparent 40%),
-radial-gradient(circle at 80% 90%, rgba(255,255,255,.05), transparent 50%),
-linear-gradient(180deg,#050508,#0b0b10);
-z-index:-1;
-}
-
-/* ================= HEADER (PREMIUM FLOAT) ================= */
+/* ================= HEADER ================= */
 
 header{
 position:sticky;
 top:0;
-z-index:999;
-padding:16px;
+z-index:1000;
+background:#0d0d0d;
+border-bottom:1px solid #1c1c1c;
+padding:18px;
 text-align:center;
-background:rgba(10,10,15,.6);
-backdrop-filter:blur(20px);
-border-bottom:1px solid rgba(255,255,255,.06);
 }
 
 .logo{
-font-size:46px;
+font-size:40px;
 font-weight:900;
 letter-spacing:1px;
 }
 
 .logo span{
-color:#ff2d55;
-text-shadow:0 0 20px rgba(255,45,85,.4);
+color:#e4002b;
 }
 
 .rp{
-font-size:11px;
+font-size:10px;
 letter-spacing:5px;
-opacity:.6;
+opacity:.5;
 margin-top:4px;
 }
 
-/* ================= HERO (WOW HERO) ================= */
+/* ================= HERO ================= */
 
 .hero{
-min-height:460px;
+min-height:420px;
 display:flex;
 flex-direction:column;
 justify-content:center;
 align-items:center;
 text-align:center;
 padding:30px;
-position:relative;
-}
-
-.hero::after{
-content:"";
-position:absolute;
-inset:0;
 background:
-url("https://images.unsplash.com/photo-1568901346375-23c9450c58cd");
-background-size:cover;
-background-position:center;
-opacity:.25;
-z-index:-1;
-filter:blur(1px);
-transform:scale(1.05);
+linear-gradient(180deg,#0a0a0a,#111);
+border-bottom:1px solid #1c1c1c;
 }
 
 .hero h1{
-font-size:58px;
+font-size:50px;
 font-weight:900;
-letter-spacing:-2px;
-line-height:1.05;
-text-shadow:0 30px 80px rgba(0,0,0,.6);
-animation:heroIn .8s ease;
+line-height:1.1;
 }
 
 .hero p{
-margin-top:12px;
-opacity:.75;
+margin-top:10px;
+opacity:.7;
+font-size:14px;
 }
 
-@keyframes heroIn{
-from{opacity:0;transform:translateY(20px);}
-to{opacity:1;transform:translateY(0);}
-}
-
-/* ================= BUTTONS (APPLE-LIKE) ================= */
+/* ================= BUTTONS ================= */
 
 button{
-background:linear-gradient(135deg,#ff2d55,#ff004c);
+background:#e4002b;
 color:#fff;
 border:none;
-padding:14px 18px;
-border-radius:16px;
+padding:13px 18px;
+border-radius:10px;
 font-weight:700;
 cursor:pointer;
-transition:.25s ease;
-position:relative;
-overflow:hidden;
-box-shadow:0 10px 30px rgba(255,45,85,.25);
+transition:.2s ease;
 }
 
 button:hover{
-transform:translateY(-3px);
-box-shadow:0 18px 50px rgba(255,45,85,.35);
+background:#ff1f45;
+transform:translateY(-2px);
 }
 
 button:active{
-transform:scale(.96);
+transform:scale(.97);
 }
 
-button::after{
-content:"";
-position:absolute;
-width:0;
-height:0;
-background:rgba(255,255,255,.25);
-border-radius:50%;
-top:50%;
-left:50%;
-transform:translate(-50%,-50%);
-transition:.5s;
-}
-
-button:hover::after{
-width:260px;
-height:260px;
-}
-
-/* ================= SECTIONS (GLASS CARDS) ================= */
+/* ================= SECTIONS ================= */
 
 .about,
 .service,
@@ -159,110 +103,91 @@ height:260px;
 .working,
 .location,
 .partners{
-margin:18px;
-padding:24px;
-border-radius:20px;
-background:rgba(255,255,255,.04);
-border:1px solid rgba(255,255,255,.08);
-backdrop-filter:blur(14px);
-box-shadow:0 20px 60px rgba(0,0,0,.5);
-transition:.25s ease;
-}
-
-.about:hover,
-.service:hover,
-.booking:hover,
-.cart:hover,
-.info:hover,
-.working:hover,
-.location:hover,
-.partners:hover{
-transform:translateY(-6px);
+background:#121212;
+margin:16px;
+padding:22px;
+border-radius:14px;
+border:1px solid #1f1f1f;
 }
 
 /* ================= TITLES ================= */
 
 h2{
-font-size:24px;
-margin-bottom:14px;
-color:#ff2d55;
-letter-spacing:-0.5px;
+font-size:20px;
+font-weight:800;
+margin-bottom:12px;
 }
 
-/* ================= MENU SYSTEM ================= */
+h2::before{
+content:"";
+display:inline-block;
+width:4px;
+height:16px;
+background:#e4002b;
+margin-right:8px;
+}
+
+/* ================= MENU ================= */
 
 .menu-buttons{
-padding:20px;
+padding:16px;
 text-align:center;
 }
 
 .menu-buttons button{
-margin:6px;
-background:rgba(255,255,255,.06);
-border:1px solid rgba(255,255,255,.08);
+background:#1a1a1a;
+border:1px solid #2a2a2a;
+margin:5px;
 }
 
-/* ================= INPUT ================= */
+.menu-buttons button:hover{
+border-color:#e4002b;
+}
+
+/* ================= SEARCH ================= */
 
 .search{
 width:92%;
-margin:18px auto;
+margin:16px auto;
 display:block;
-padding:14px;
-border-radius:14px;
-background:rgba(255,255,255,.05);
-border:1px solid rgba(255,255,255,.08);
+padding:12px;
+border-radius:10px;
+border:1px solid #2a2a2a;
+background:#0f0f0f;
 color:#fff;
-outline:none;
 }
 
-/* ================= PRODUCTS (BIG WOW GRID) ================= */
+/* ================= PRODUCTS ================= */
 
 .products{
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
-gap:14px;
-padding:18px;
+gap:12px;
+padding:16px;
 }
 
 .card{
-background:rgba(255,255,255,.04);
-border:1px solid rgba(255,255,255,.08);
-border-radius:18px;
+background:#151515;
+border:1px solid #222;
+border-radius:12px;
 padding:16px;
-transition:.3s ease;
-position:relative;
-overflow:hidden;
-}
-
-.card::before{
-content:"";
-position:absolute;
-inset:-50%;
-background:radial-gradient(circle,rgba(255,45,85,.2),transparent 60%);
-opacity:0;
-transition:.4s;
-}
-
-.card:hover::before{
-opacity:1;
+transition:.2s ease;
 }
 
 .card:hover{
-transform:translateY(-10px) scale(1.02);
-box-shadow:0 25px 70px rgba(0,0,0,.6);
-border-color:rgba(255,45,85,.4);
+border-color:#e4002b;
+transform:translateY(-3px);
 }
 
 .card h3{
-font-size:16px;
-font-weight:800;
+font-size:15px;
+font-weight:700;
 }
 
 .card p{
-margin-top:8px;
-color:#ff3b5c;
-font-weight:900;
+margin-top:6px;
+color:#e4002b;
+font-weight:800;
 }
 
 /* ================= LISTS ================= */
@@ -270,95 +195,41 @@ font-weight:900;
 .service li,
 .partners li{
 list-style:none;
-padding:12px;
+padding:10px;
 margin:8px 0;
-background:rgba(255,255,255,.05);
-border-radius:12px;
-border-left:3px solid #ff2d55;
+background:#161616;
+border-left:3px solid #e4002b;
+border-radius:10px;
 }
 
-/* ================= LOCATION ================= */
-
-.location-card{
-padding:16px;
-background:rgba(255,255,255,.05);
-border-radius:14px;
-border:1px solid rgba(255,255,255,.08);
-}
-
-/* ================= INPUTS ================= */
+/* ================= INPUT ================= */
 
 input{
 width:100%;
-padding:14px;
+padding:12px;
 margin:10px 0;
-border-radius:14px;
-background:rgba(255,255,255,.05);
-border:1px solid rgba(255,255,255,.08);
+border-radius:10px;
+border:1px solid #2a2a2a;
+background:#0f0f0f;
 color:#fff;
-outline:none;
 }
 
-/* ================= NAV (FLOATING DOCK) ================= */
+/* ================= NAV ================= */
 
 nav{
 position:fixed;
-bottom:16px;
-left:50%;
-transform:translateX(-50%);
+bottom:0;
+left:0;
+width:100%;
+background:#0d0d0d;
+border-top:1px solid #1c1c1c;
 display:flex;
-gap:10px;
-background:rgba(10,10,15,.6);
-backdrop-filter:blur(20px);
-padding:10px 14px;
-border-radius:999px;
-border:1px solid rgba(255,255,255,.08);
-box-shadow:0 20px 60px rgba(0,0,0,.6);
+justify-content:space-around;
+padding:12px;
 }
 
 nav button{
 background:none;
-font-size:22px;
-}
-
-/* ================= MOBILE ================= */
-
-@media(max-width:700px){
-
-.hero h1{
-font-size:36px;
-}
-
-.about,
-.service,
-.booking,
-.cart,
-.info,
-.working,
-.location,
-.partners{
-margin:12px;
-padding:16px;
-}
-
-.products{
-grid-template-columns:repeat(2,1fr);
-}
-}
-
-/* ================= PC ULTRA WOW ================= */
-
-@media(min-width:900px){
-
-.hero h1{
-font-size:74px;
-}
-
-.card:hover{
-transform:perspective(900px) rotateX(6deg) rotateY(-6deg) translateY(-10px);
-}
-
-button:hover{
-transform:translateY(-4px) scale(1.02);
-}
+font-size:20px;
+color:#fff;
 }
