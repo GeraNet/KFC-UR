@@ -7,7 +7,220 @@
 
 <title>UR KFC Network</title>
 
-<link rel="stylesheet" href="style.css">
+<style>
+
+/* ================= BASE ================= */
+
+body{
+margin:0;
+background:#0a0b0f;
+color:#fff;
+font-family:system-ui,Arial;
+overflow-x:hidden;
+padding-bottom:100px;
+}
+
+/* ================= HEADER ================= */
+
+.topbar{
+background:rgba(10,11,15,0.9);
+backdrop-filter:blur(14px);
+border-bottom:1px solid #1f1f1f;
+padding:16px 0;
+text-align:center;
+position:sticky;
+top:0;
+z-index:999;
+
+animation:slideDown 0.6s ease-out;
+}
+
+.logo-wrap{
+display:flex;
+justify-content:center;
+align-items:center;
+padding:8px 0;
+}
+
+.logo-wrap img{
+width:clamp(110px, 16vw, 210px);
+height:auto;
+max-width:100%;
+display:block;
+object-fit:contain;
+
+filter:drop-shadow(0 6px 10px rgba(0,0,0,0.35));
+
+animation:logoAppear 0.8s ease-out, logoFloat 4s ease-in-out infinite;
+}
+
+/* ================= HERO ================= */
+
+.hero{
+padding:70px 20px;
+text-align:center;
+}
+
+.hero h1{
+font-size:40px;
+font-weight:900;
+}
+
+.hero p{
+opacity:0.7;
+margin-top:10px;
+}
+
+.hero button{
+margin-top:20px;
+padding:14px 18px;
+border:none;
+border-radius:12px;
+background:#e4002b;
+color:#fff;
+font-weight:800;
+cursor:pointer;
+transition:0.2s;
+}
+
+.hero button:hover{
+transform:translateY(-3px);
+}
+
+/* ================= SECTIONS ================= */
+
+section{
+margin:14px;
+padding:18px;
+background:#12141a;
+border:1px solid #1f2430;
+border-radius:14px;
+
+animation:fadeUp 0.6s ease-out;
+}
+
+h2{
+border-left:4px solid #e4002b;
+padding-left:10px;
+font-size:18px;
+}
+
+/* ================= MENU ================= */
+
+#menu{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+gap:10px;
+margin-top:10px;
+}
+
+.card{
+background:#141722;
+border:1px solid #232838;
+padding:12px;
+border-radius:12px;
+transition:0.2s;
+}
+
+.card:hover{
+transform:translateY(-4px);
+border-color:#e4002b;
+}
+
+.card h3{
+font-size:14px;
+}
+
+.card p{
+color:#ff2a4d;
+font-weight:800;
+}
+
+.card button{
+width:100%;
+margin-top:8px;
+padding:10px;
+border:none;
+border-radius:10px;
+background:#e4002b;
+color:#fff;
+}
+
+/* ================= CART ================= */
+
+input{
+width:100%;
+padding:12px;
+margin-top:10px;
+border-radius:10px;
+border:1px solid #2a2f3a;
+background:#0f1116;
+color:#fff;
+}
+
+.cart button{
+width:100%;
+padding:14px;
+margin-top:10px;
+border:none;
+border-radius:12px;
+background:#e4002b;
+color:#fff;
+font-weight:800;
+}
+
+/* ================= NAV ================= */
+
+nav{
+position:fixed;
+bottom:0;
+width:100%;
+display:flex;
+justify-content:space-around;
+padding:10px;
+background:rgba(10,11,15,0.9);
+backdrop-filter:blur(12px);
+border-top:1px solid #1f1f1f;
+}
+
+nav button{
+background:none;
+border:none;
+font-size:22px;
+color:#fff;
+}
+
+/* ================= ANIMATIONS ================= */
+
+@keyframes slideDown{
+from{transform:translateY(-20px);opacity:0;}
+to{transform:translateY(0);opacity:1;}
+}
+
+@keyframes fadeUp{
+from{opacity:0;transform:translateY(10px);}
+to{opacity:1;transform:translateY(0);}
+}
+
+@keyframes logoAppear{
+from{opacity:0;transform:scale(0.85);}
+to{opacity:1;transform:scale(1);}
+}
+
+@keyframes logoFloat{
+0%{transform:translateY(0px);}
+50%{transform:translateY(-4px);}
+100%{transform:translateY(0px);}
+}
+
+/* ================= MOBILE ================= */
+
+@media(max-width:768px){
+.hero h1{font-size:28px;}
+}
+
+</style>
+
 </head>
 
 <body>
@@ -15,16 +228,8 @@
 <!-- ================= HEADER ================= -->
 <header class="topbar">
 
-  <div class="brand">
-
-    <div class="logo">
-      UR KFC
-    </div>
-
-    <div class="network">
-      FOOD NETWORK
-    </div>
-
+  <div class="logo-wrap">
+    <img src="https://i.ibb.co/MD1VrkyL/21-D7-C5-C8-C791-44-C2-94-CF-F23-E9-AB40786.png" alt="UR KFC Logo">
   </div>
 
 </header>
@@ -48,89 +253,33 @@ UR KFC — ресторанна мережа Ukraine RP
 </section>
 
 <!-- ================= ABOUT ================= -->
-<section class="about">
-
+<section>
 <h2>🍗 Про UR KFC</h2>
 
 <p>
 UR KFC — це сучасна ресторанна мережа у світі Ukraine RP.
-Ми створюємо атмосферу справжнього закладу,
-якісний сервіс та унікальний досвід для кожного клієнта.
-</p>
-
-<p>
-У нашому меню:
-бургери, курка, гарніри, напої та спеціальні комбо.
-</p>
-
-</section>
-
-<!-- ================= SERVICE ================= -->
-<section class="service">
-
-<h2>🚚 Доставка та отримання</h2>
-
-<ul>
-<li>🍗 Самостійне отримання замовлення</li>
-<li>🚗 Доставка з ресторану мережі</li>
-<li>🪑 Бронювання столика</li>
-</ul>
-
-<p>
-При замовленні клієнт вказує,
-з якого ресторану мережі UR KFC він робить замовлення.
+Ми створюємо атмосферу справжнього закладу та сервісу.
 </p>
 
 </section>
 
 <!-- ================= MENU BUTTONS ================= -->
-<section class="menu-buttons">
+<section>
+<h2>🍔 Меню</h2>
 
-<h2>🍔 Меню UR KFC</h2>
-
-<button onclick="openCat('burgers')">🍔 Бургери</button>
-<button onclick="openCat('chicken')">🍗 Курка</button>
-<button onclick="openCat('garnish')">🍟 Гарніри</button>
-<button onclick="openCat('drinks')">🥤 Напої</button>
-<button onclick="openCat('combo')">🎁 Комбо</button>
+<button onclick="openCat('burgers')">Бургери</button>
+<button onclick="openCat('chicken')">Курка</button>
+<button onclick="openCat('garnish')">Гарніри</button>
+<button onclick="openCat('drinks')">Напої</button>
+<button onclick="openCat('combo')">Комбо</button>
 
 </section>
 
 <!-- ================= SEARCH ================= -->
-<input
-class="search"
-id="search"
-placeholder="🔎 Пошук страви"
-oninput="searchFood()"
-/>
+<input id="search" placeholder="🔎 Пошук страви" oninput="searchFood()">
 
 <!-- ================= MENU ================= -->
 <section id="menu"></section>
-
-<!-- ================= BOOKING ================= -->
-<section class="booking">
-
-<h2>🪑 Бронювання столика</h2>
-
-<button onclick="simpleBooking()">
-Забронювати просте місце
-</button>
-
-<button onclick="addVIP()">
-👑 VIP місце +1500 грн
-</button>
-
-<p>
-Прості місця:
-оплата 100 грн на місці.
-</p>
-
-<p>
-VIP місця:
-додаються у корзину.
-</p>
-
-</section>
 
 <!-- ================= CART ================= -->
 <section class="cart">
@@ -139,156 +288,21 @@ VIP місця:
 
 <div id="cart">Порожньо</div>
 
-<hr>
+<p>Їжа: <span id="food">0</span> грн</p>
 
-<p>
-Їжа:
-<b><span id="food">0</span> грн</b>
-</p>
+<input id="tips" type="number" placeholder="Чайові" oninput="update()">
 
-<input
-type="number"
-id="tips"
-placeholder="💰 Введіть чайові"
-oninput="update()"
-/>
+<h2>Разом: <span id="total">0</span> грн</h2>
 
-<h2>
-Разом:
-<span id="total">0</span> грн
-</h2>
-
-<button onclick="order()">
-Замовити через Telegram
-</button>
-
-<div class="payment">
-
-<h3>💳 Оплата</h3>
-
-<p>
-Реквізити:<br>
-<b>Carlson9990</b><br>
-Власник:<br>
-KFC UR
-</p>
-
-</div>
-
-</section>
-
-<!-- ================= INFO ================= -->
-<section class="info">
-
-<h2>📋 Як замовити</h2>
-
-<p>
-1. Додайте їжу у корзину.<br><br>
-2. Перевірте суму замовлення.<br><br>
-3. Натисніть кнопку Telegram.<br><br>
-4. Напишіть назву ресторану UR KFC,<br>
-з якого робите замовлення.<br><br>
-5. Надішліть інформацію по замовленню.<br><br>
-6. Оплатіть власнику мережі UR KFC.
-</p>
-
-</section>
-
-<!-- ================= WORKING ================= -->
-<section class="working">
-
-<h2>🕒 Графік роботи</h2>
-
-<p>Працюємо:</p>
-
-<h3>7 днів на тиждень</h3>
-
-</section>
-
-<!-- ================= LOCATION ================= -->
-<section class="location">
-
-<h2>📍 Локації UR KFC</h2>
-
-<p>
-Наша мережа розвивається.
-Зараз працює перша офіційна локація UR KFC.
-</p>
-
-<div class="location-card">
-
-<h3>🍗 UR KFC — Головний вокзал</h3>
-
-<p>
-Ukraine RP<br><br>
-Головна локація мережі
-</p>
-
-</div>
-
-</section>
-
-<!-- ================= PARTNERS ================= -->
-<section class="partners card-box">
-
-<h2>🏢 Створіть свій ресторан у мережі UR KFC</h2>
-
-<p>
-Відкрийте власний ресторан на Ukraine RP та приєднуйтесь до мережі UR KFC.
-Навіть якщо частина доходу передається мережі, партнерство залишається вигідним завдяки бренду, рекламі, підтримці та можливостям розвитку.
-</p>
-
-<ul>
-<li>⭐ Підтримка та розвиток вашого ресторану</li>
-<li>🍗 Доступ до бренду UR KFC</li>
-<li>📢 Реклама та більше уваги від гравців</li>
-<li>🤝 Спільні заходи та співпраця</li>
-<li>🚀 Великі можливості для вашого RP бізнесу</li>
-<li>🤫 Доступ до секретів нашого меню</li>
-<li>👥 Допомога з пошуком працівників</li>
-</ul>
-
-<h3>💰 Умови партнерства</h3>
-
-<p>
-Власник ресторану передає <b>19% доходу</b> мережі UR KFC.
-</p>
-
-<p>
-Ці кошти використовуються для розвитку мережі:
-<br><br>
-📢 Відділ реклами<br>
-🤝 Відділ партнерства<br>
-👥 Відділ кадрів<br>
-🍗 Підтримка ресторанів<br>
-💼 Виплати працівникам
-</p>
-
-<h3>🎥 Контроль роботи ресторанів</h3>
-
-<p>
-Власники записують відео робочого дня для прозорості.
-</p>
-
-<h3>👨‍🍳 Працівники</h3>
-
-<p>
-Власник сам формує команду, або отримує допомогу від мережі.
-</p>
-
-<button onclick="window.open('https://t.me/Duf7484')">
-Приєднати ресторан
-</button>
+<button onclick="order()">Замовити через Telegram</button>
 
 </section>
 
 <!-- ================= NAV ================= -->
 <nav>
-
 <button onclick="scrollToMenu()">🍔</button>
 <button onclick="scrollCart()">🛒</button>
 <button onclick="scrollLocation()">📍</button>
-
 </nav>
 
 <script src="script.js"></script>
