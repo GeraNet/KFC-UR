@@ -1,0 +1,1000 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>KFC Ukraine RP</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+
+:root{
+  --ink:#0D0905;
+  --ink2:#1C120A;
+  --cream:#F9F4EC;
+  --warm:#F0E8D8;
+  --paper:#EAE0CC;
+  --red:#CC1A28;
+  --red2:#A8141F;
+  --gold:#B8892A;
+  --gold2:#D4A843;
+  --white:#FFFFFF;
+  --muted:#8C7B6A;
+  --line:rgba(13,9,5,0.1);
+}
+
+body{
+  background:var(--cream);
+  color:var(--ink);
+  font-family:'DM Sans',sans-serif;
+  overflow-x:hidden;
+}
+
+/* ─── CURSOR ─── */
+.cursor{
+  width:8px;height:8px;
+  background:var(--red);
+  border-radius:50%;
+  position:fixed;top:0;left:0;
+  pointer-events:none;z-index:9999;
+  transform:translate(-50%,-50%);
+  transition:width .25s,height .25s,background .25s;
+}
+.cursor-ring{
+  width:36px;height:36px;
+  border:1px solid rgba(204,26,40,.4);
+  border-radius:50%;
+  position:fixed;top:0;left:0;
+  pointer-events:none;z-index:9998;
+  transform:translate(-50%,-50%);
+  transition:transform .12s ease,width .25s,height .25s,border-color .25s;
+}
+
+/* ─── NAV ─── */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:500;
+  height:76px;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0 64px;
+  background:rgba(249,244,236,.96);
+  backdrop-filter:blur(24px);
+  border-bottom:1px solid var(--line);
+  transition:box-shadow .3s;
+}
+nav.up{box-shadow:0 8px 48px rgba(13,9,5,.08)}
+
+.logo{
+  font-family:'Cormorant Garamond',serif;
+  font-size:26px;font-weight:700;
+  letter-spacing:6px;text-transform:uppercase;
+  color:var(--ink);
+}
+.logo b{color:var(--red);font-weight:700}
+
+.nav-links{display:flex;align-items:center;gap:40px}
+.nav-links a{
+  font-size:11px;font-weight:500;letter-spacing:2.5px;
+  text-transform:uppercase;text-decoration:none;
+  color:var(--muted);transition:color .2s;
+}
+.nav-links a:hover{color:var(--ink)}
+.nav-cta{
+  background:var(--red)!important;
+  color:#fff!important;
+  padding:11px 28px!important;
+  border-radius:1px!important;
+  letter-spacing:2px!important;
+  transition:background .2s!important;
+}
+.nav-cta:hover{background:var(--red2)!important}
+
+/* ─── HERO ─── */
+.hero{
+  min-height:100vh;
+  display:grid;grid-template-columns:1fr 1fr;
+  position:relative;overflow:hidden;
+  padding-top:76px;
+}
+
+.hero-left{
+  display:flex;flex-direction:column;justify-content:center;
+  padding:80px 64px;
+  position:relative;z-index:2;
+}
+
+.hero-right{
+  background:var(--ink2);
+  display:flex;align-items:center;justify-content:center;
+  position:relative;overflow:hidden;
+}
+
+.hero-right-bg{
+  position:absolute;inset:0;
+  background:
+    radial-gradient(ellipse at 30% 60%,rgba(204,26,40,.18) 0%,transparent 60%),
+    radial-gradient(ellipse at 80% 20%,rgba(184,137,42,.12) 0%,transparent 50%);
+}
+
+.hero-right-text{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(120px,18vw,220px);
+  font-weight:700;
+  color:rgba(255,255,255,.04);
+  letter-spacing:-8px;
+  user-select:none;
+  position:absolute;
+  animation:breathe 6s ease-in-out infinite;
+}
+@keyframes breathe{0%,100%{transform:scale(1)}50%{transform:scale(1.03)}}
+
+.hero-card{
+  position:relative;z-index:2;
+  border:1px solid rgba(255,255,255,.08);
+  background:rgba(255,255,255,.03);
+  backdrop-filter:blur(8px);
+  padding:48px 40px;
+  width:340px;
+}
+.hero-card-tag{
+  font-size:10px;letter-spacing:4px;text-transform:uppercase;
+  color:var(--gold2);margin-bottom:24px;
+  display:flex;align-items:center;gap:12px;
+}
+.hero-card-tag::before{content:'';width:24px;height:1px;background:var(--gold2)}
+.hero-card-num{
+  font-family:'Cormorant Garamond',serif;
+  font-size:72px;font-weight:700;line-height:1;
+  color:#fff;margin-bottom:4px;
+}
+.hero-card-num span{font-size:24px;color:var(--gold2)}
+.hero-card-label{font-size:12px;color:rgba(255,255,255,.35);letter-spacing:2px;text-transform:uppercase}
+.hero-card-divider{height:1px;background:rgba(255,255,255,.08);margin:28px 0}
+.hero-card-line{
+  display:flex;justify-content:space-between;align-items:center;
+  font-size:13px;color:rgba(255,255,255,.45);margin-bottom:10px;
+}
+.hero-card-line span{color:#fff;font-weight:500}
+
+.htag{
+  display:inline-flex;align-items:center;gap:10px;
+  font-size:10px;letter-spacing:4px;text-transform:uppercase;
+  color:var(--red);margin-bottom:32px;
+}
+.htag::before{content:'';width:28px;height:1px;background:var(--red)}
+
+.hero h1{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(60px,7.5vw,104px);
+  font-weight:700;line-height:.92;
+  color:var(--ink);margin-bottom:8px;
+}
+.hero h1 em{color:var(--red);font-style:italic;display:block}
+.hero h1 .thin{font-weight:400;color:var(--muted)}
+
+.hero-sub{
+  font-size:15px;line-height:1.75;
+  color:var(--muted);
+  max-width:380px;
+  margin:28px 0 48px;
+}
+
+.hero-btns{display:flex;gap:16px;flex-wrap:wrap}
+
+.btn-fill{
+  background:var(--red);color:#fff;
+  padding:17px 40px;border-radius:1px;
+  font-size:11px;font-weight:600;letter-spacing:2.5px;
+  text-transform:uppercase;text-decoration:none;border:none;cursor:pointer;
+  transition:background .2s,transform .15s;display:inline-block;
+}
+.btn-fill:hover{background:var(--red2);transform:translateY(-2px)}
+
+.btn-line{
+  background:transparent;color:var(--ink);
+  padding:17px 40px;border-radius:1px;
+  font-size:11px;font-weight:600;letter-spacing:2.5px;
+  text-transform:uppercase;text-decoration:none;
+  border:1.5px solid var(--ink);cursor:pointer;
+  transition:background .2s,color .2s;display:inline-block;
+}
+.btn-line:hover{background:var(--ink);color:#fff}
+
+/* ─── TICKER ─── */
+.ticker{
+  background:var(--red);
+  height:48px;display:flex;align-items:center;
+  overflow:hidden;position:relative;
+}
+.ticker-track{
+  display:flex;gap:0;
+  animation:tick 22s linear infinite;
+  white-space:nowrap;
+}
+@keyframes tick{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.ticker-item{
+  font-size:11px;letter-spacing:3px;text-transform:uppercase;
+  color:rgba(255,255,255,.7);padding:0 40px;
+  display:flex;align-items:center;gap:40px;
+}
+.ticker-item::after{content:'✦';color:rgba(255,255,255,.3);font-size:8px}
+
+/* ─── SECTION BASE ─── */
+.sec{padding:100px 64px}
+.sec-alt{background:var(--warm)}
+.sec-dark{background:var(--ink);color:#fff}
+
+.eyebrow{
+  display:flex;align-items:center;gap:16px;
+  margin-bottom:16px;
+}
+.eyebrow-line{width:36px;height:1px;background:var(--red)}
+.eyebrow-txt{
+  font-size:10px;font-weight:600;letter-spacing:4px;
+  text-transform:uppercase;color:var(--red);
+}
+.sec-dark .eyebrow-txt{color:var(--gold2)}
+.sec-dark .eyebrow-line{background:var(--gold2)}
+
+.sec-h{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(40px,5.5vw,72px);
+  font-weight:700;line-height:1;
+  margin-bottom:56px;
+}
+.sec-dark .sec-h{color:#fff}
+
+/* ─── MENU ─── */
+.menu-tabs{
+  display:flex;gap:0;margin-bottom:0;
+  border-bottom:1px solid var(--line);
+  overflow-x:auto;
+}
+.menu-tab{
+  background:none;border:none;cursor:pointer;
+  padding:16px 28px;
+  font-family:'DM Sans',sans-serif;
+  font-size:11px;font-weight:600;letter-spacing:2px;
+  text-transform:uppercase;color:var(--muted);
+  border-bottom:2px solid transparent;margin-bottom:-1px;
+  transition:color .2s,border-color .2s;white-space:nowrap;
+}
+.menu-tab.on{color:var(--red);border-bottom-color:var(--red)}
+.menu-tab:hover{color:var(--ink)}
+
+.menu-panel{display:none}
+.menu-panel.on{display:block}
+
+.menu-items{
+  border-left:1px solid var(--line);
+  border-right:1px solid var(--line);
+  border-bottom:1px solid var(--line);
+}
+
+.menu-row{
+  display:flex;align-items:center;
+  padding:22px 32px;
+  border-top:1px solid var(--line);
+  transition:background .2s;
+  opacity:0;transform:translateX(-12px);
+  transition:background .2s,opacity .35s ease,transform .35s ease;
+  cursor:default;
+}
+.menu-row:hover{background:var(--white)}
+.menu-row.vis{opacity:1;transform:none}
+
+.menu-row-idx{
+  font-family:'Cormorant Garamond',serif;
+  font-size:13px;color:var(--muted);
+  width:36px;flex-shrink:0;
+}
+.menu-row-name{
+  flex:1;font-size:15px;font-weight:400;
+  color:var(--ink);
+}
+.menu-row-name .star{color:var(--gold);font-size:13px;margin-left:6px}
+.menu-row-dots{
+  flex:1;border-bottom:1px dotted rgba(13,9,5,.15);
+  margin:0 20px;height:1px;align-self:flex-end;margin-bottom:6px;
+}
+.menu-row-price{
+  font-family:'Cormorant Garamond',serif;
+  font-size:20px;font-weight:600;
+  color:var(--ink);min-width:100px;text-align:right;
+}
+.menu-row-add{
+  background:var(--ink);color:#fff;
+  border:none;cursor:pointer;
+  width:34px;height:34px;border-radius:50%;
+  font-size:20px;font-weight:300;
+  display:flex;align-items:center;justify-content:center;
+  margin-left:20px;flex-shrink:0;
+  transition:background .2s,transform .15s;
+}
+.menu-row-add:hover{background:var(--red);transform:scale(1.1) rotate(90deg)}
+
+/* ─── CART ─── */
+.cart-wrap{
+  display:grid;grid-template-columns:1fr 400px;gap:56px;
+}
+.cart-table{border:1px solid var(--line)}
+.cart-empty{
+  padding:80px 48px;
+  text-align:center;
+  font-family:'Cormorant Garamond',serif;
+  font-size:22px;color:var(--muted);font-style:italic;
+}
+.cart-item{
+  display:flex;align-items:center;gap:20px;
+  padding:22px 32px;border-bottom:1px solid var(--line);
+  animation:slideR .3s ease;
+}
+@keyframes slideR{from{opacity:0;transform:translateX(-8px)}to{opacity:1;transform:none}}
+.ci-name{flex:1;font-size:15px;font-weight:400}
+.ci-qty{display:flex;align-items:center;gap:12px}
+.ci-btn{
+  width:28px;height:28px;border-radius:50%;
+  border:1px solid var(--line);background:var(--cream);
+  cursor:pointer;font-size:16px;
+  display:flex;align-items:center;justify-content:center;
+  transition:background .15s;
+}
+.ci-btn:hover{background:var(--paper)}
+.ci-n{font-weight:600;min-width:20px;text-align:center}
+.ci-price{
+  font-family:'Cormorant Garamond',serif;
+  font-size:20px;font-weight:600;
+  min-width:110px;text-align:right;
+}
+.ci-del{
+  background:none;border:none;cursor:pointer;
+  color:var(--muted);font-size:16px;
+  padding:4px 8px;transition:color .2s;
+}
+.ci-del:hover{color:var(--red)}
+
+.cart-panel{
+  position:sticky;top:92px;height:fit-content;
+  border:1px solid var(--line);padding:40px;
+  background:var(--white);
+}
+.cart-panel-h{
+  font-family:'Cormorant Garamond',serif;
+  font-size:30px;font-weight:700;
+  margin-bottom:28px;padding-bottom:24px;
+  border-bottom:1px solid var(--line);
+}
+.cp-line{
+  display:flex;justify-content:space-between;
+  font-size:13px;color:var(--muted);margin-bottom:10px;
+}
+.cp-min{
+  font-size:11px;color:var(--red);
+  letter-spacing:1px;margin-top:4px;
+  display:none;
+}
+.cp-min.show{display:block}
+.cp-total{
+  display:flex;justify-content:space-between;align-items:baseline;
+  margin-top:24px;padding-top:24px;
+  border-top:1px solid var(--line);
+}
+.cp-total-lbl{
+  font-size:10px;font-weight:700;letter-spacing:3px;
+  text-transform:uppercase;
+}
+.cp-total-price{
+  font-family:'Cormorant Garamond',serif;
+  font-size:36px;font-weight:700;color:var(--red);
+}
+.tg-order-btn{
+  width:100%;margin-top:24px;
+  background:var(--ink);color:#fff;border:none;cursor:pointer;
+  padding:20px;
+  font-size:11px;font-weight:700;letter-spacing:3px;text-transform:uppercase;
+  transition:background .2s;
+}
+.tg-order-btn:hover{background:var(--red)}
+
+/* ─── BOOKING ─── */
+.book-grid{
+  display:grid;grid-template-columns:1fr 1fr;gap:2px;
+  background:var(--line);border:1px solid var(--line);
+  max-width:800px;
+}
+.book-card{
+  background:var(--cream);padding:56px 48px;
+  cursor:pointer;transition:background .2s;position:relative;
+}
+.book-card:hover{background:var(--white)}
+.book-dark{background:var(--ink)!important}
+.book-dark:hover{background:var(--ink2)!important}
+.book-vip-tag{
+  position:absolute;top:28px;right:28px;
+  font-size:9px;letter-spacing:4px;text-transform:uppercase;
+  color:var(--gold2);
+}
+.book-num{
+  font-family:'Cormorant Garamond',serif;
+  font-size:13px;color:var(--muted);margin-bottom:20px;letter-spacing:2px;
+}
+.book-dark .book-num{color:rgba(255,255,255,.25)}
+.book-title{
+  font-family:'Cormorant Garamond',serif;
+  font-size:36px;font-weight:700;
+  color:var(--ink);margin-bottom:8px;
+}
+.book-dark .book-title{color:#fff}
+.book-price{
+  font-family:'Cormorant Garamond',serif;
+  font-size:26px;font-weight:600;
+  color:var(--red);margin-bottom:16px;
+}
+.book-dark .book-price{color:var(--gold2)}
+.book-note{font-size:13px;color:var(--muted);line-height:1.6}
+.book-dark .book-note{color:rgba(255,255,255,.35)}
+
+/* ─── HOW ─── */
+.how-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);
+  gap:2px;background:var(--line);border:1px solid var(--line);
+}
+.how-step{
+  background:var(--ink);padding:48px 40px;
+  opacity:0;transform:translateY(20px);
+  transition:opacity .5s ease,transform .5s ease,background .2s;
+}
+.how-step:hover{background:#251610}
+.how-step.vis{opacity:1;transform:none}
+.how-n{
+  font-family:'Cormorant Garamond',serif;
+  font-size:72px;font-weight:700;
+  color:var(--red);opacity:.2;line-height:1;
+  margin-bottom:20px;
+}
+.how-title{
+  font-size:15px;font-weight:600;
+  color:#fff;margin-bottom:8px;
+}
+.how-desc{font-size:13px;color:rgba(255,255,255,.35);line-height:1.7}
+
+/* ─── PAYMENT ─── */
+.pay-block{
+  display:inline-flex;gap:0;
+  border:1px solid var(--line);
+  overflow:hidden;
+  background:var(--white);
+}
+.pay-cell{padding:48px 56px}
+.pay-cell+.pay-cell{border-left:1px solid var(--line)}
+.pay-cell-lbl{
+  font-size:10px;letter-spacing:4px;text-transform:uppercase;
+  color:var(--muted);margin-bottom:10px;
+}
+.pay-cell-val{
+  font-family:'Cormorant Garamond',serif;
+  font-size:36px;font-weight:700;color:var(--ink);
+}
+.pay-cell-val.gold{color:var(--gold)}
+
+/* ─── FOOTER ─── */
+footer{
+  background:var(--ink);
+  padding:56px 64px;
+  display:flex;align-items:center;justify-content:space-between;
+  flex-wrap:wrap;gap:28px;
+  border-top:1px solid rgba(255,255,255,.04);
+}
+.f-logo{
+  font-family:'Cormorant Garamond',serif;
+  font-size:22px;font-weight:700;letter-spacing:6px;text-transform:uppercase;
+  color:#fff;
+}
+.f-logo em{color:var(--red);font-style:normal}
+.f-meta{display:flex;gap:48px;flex-wrap:wrap}
+.f-item{font-size:12px;color:rgba(255,255,255,.3)}
+.f-item strong{
+  display:block;font-size:9px;letter-spacing:3px;
+  text-transform:uppercase;color:rgba(255,255,255,.5);
+  margin-bottom:3px;font-weight:600;
+}
+
+/* ─── TOAST ─── */
+.toast{
+  position:fixed;bottom:36px;right:36px;z-index:9000;
+  background:var(--ink);color:#fff;
+  padding:18px 28px;
+  font-size:13px;font-weight:400;
+  border-left:2px solid var(--red);
+  transform:translateY(80px);opacity:0;
+  transition:all .35s cubic-bezier(.34,1.2,.64,1);
+  pointer-events:none;
+  max-width:340px;
+}
+.toast.show{transform:none;opacity:1}
+.toast-name{font-weight:600;color:var(--gold2)}
+
+/* ─── REVEAL ─── */
+.rev{
+  opacity:0;transform:translateY(24px);
+  transition:opacity .65s ease,transform .65s ease;
+}
+.rev.vis{opacity:1;transform:none}
+
+/* ─── MOBILE ─── */
+@media(max-width:960px){
+  /* Nav */
+  nav{padding:0 20px;height:64px}
+  .nav-links{display:none}
+
+  /* Hero */
+  .hero{grid-template-columns:1fr;min-height:auto}
+  .hero::after{display:none}
+  .hero-right{display:none}
+  .hero-left{padding:96px 20px 56px}
+  .hero h1{font-size:clamp(52px,13vw,80px)}
+  .hero-sub{font-size:14px;margin:20px 0 36px}
+  .hero-btns{flex-direction:column;gap:12px}
+  .btn-fill,.btn-line{width:100%;text-align:center;padding:16px 24px}
+
+  /* Ticker */
+  .ticker-item{padding:0 24px;gap:24px}
+
+  /* Sections */
+  .sec{padding:56px 20px}
+  .sec-h{font-size:clamp(32px,8vw,52px);margin-bottom:36px}
+
+  /* Menu tabs */
+  .menu-tabs{overflow-x:auto;-webkit-overflow-scrolling:touch;padding-bottom:2px}
+  .menu-tabs::-webkit-scrollbar{display:none}
+  .menu-tab{padding:14px 18px;font-size:10px}
+
+  /* Menu rows */
+  .menu-row{padding:16px 16px;gap:10px}
+  .menu-row-idx{display:none}
+  .menu-row-dots{display:none}
+  .menu-row-name{font-size:14px}
+  .menu-row-price{font-size:17px;min-width:80px}
+  .menu-row-add{width:30px;height:30px;margin-left:10px}
+
+  /* Cart */
+  .cart-wrap{grid-template-columns:1fr;gap:24px}
+  .cart-panel{position:static}
+  .cart-item{padding:16px 16px;gap:12px;flex-wrap:wrap}
+  .ci-name{font-size:14px;width:100%;flex:none}
+  .ci-price{min-width:auto;font-size:17px}
+  .ci-qty{margin-left:0}
+  .cart-empty{padding:48px 24px;font-size:18px}
+  .cart-panel{padding:28px 20px}
+
+  /* Booking */
+  .book-grid{grid-template-columns:1fr}
+  .book-card{padding:40px 28px}
+  .book-title{font-size:28px}
+
+  /* How */
+  .how-grid{grid-template-columns:1fr 1fr}
+  .how-step{padding:32px 24px}
+  .how-n{font-size:52px}
+  .how-title{font-size:14px}
+  .how-desc{font-size:12px}
+
+  /* Payment */
+  .pay-block{flex-direction:column;display:flex}
+  .pay-cell{padding:32px 28px}
+  .pay-cell+.pay-cell{border-left:none;border-top:1px solid var(--line)}
+  .pay-cell-val{font-size:26px}
+
+  /* Footer */
+  footer{padding:40px 20px;flex-direction:column;gap:28px}
+  .f-meta{gap:24px}
+
+  /* Toast */
+  .toast{bottom:20px;right:20px;left:20px;max-width:none;font-size:13px}
+
+  /* Cursor — hide on touch */
+  .cursor,.cursor-ring{display:none}
+}
+
+@media(max-width:600px){
+  .how-grid{grid-template-columns:1fr}
+  .hero h1{font-size:clamp(46px,15vw,68px)}
+  .menu-row{padding:14px 14px}
+  .menu-row-price{font-size:15px;min-width:72px}
+  .sec{padding:48px 16px}
+  nav{padding:0 16px}
+  .cart-item{padding:14px 14px}
+  .book-card{padding:36px 24px}
+  .info-strip{flex-direction:column}
+  .info-strip-item{padding:20px 20px}
+}
+</style>
+</head>
+<body>
+
+<!-- CURSOR -->
+<div class="cursor" id="cur"></div>
+<div class="cursor-ring" id="cur2"></div>
+
+<!-- NAV -->
+<nav id="nav">
+  <div class="logo">UR &nbsp;<b>KFC</b></div>
+  <div class="nav-links">
+    <a href="#menu">Меню</a>
+    <a href="#cart">Корзина</a>
+    <a href="#booking">Бронювання</a>
+    <a href="#how">Як замовити</a>
+    <a href="#cart" class="nav-cta">Замовити</a>
+  </div>
+  <button class="burger" id="burger" onclick="toggleMenu()" aria-label="Меню">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- MOBILE MENU -->
+<div class="mob-menu" id="mobMenu">
+  <a href="#menu" onclick="closeMenu()">Меню</a>
+  <a href="#cart" onclick="closeMenu()">Корзина</a>
+  <a href="#booking" onclick="closeMenu()">Бронювання</a>
+  <a href="#how" onclick="closeMenu()">Як замовити</a>
+  <a href="#payment" onclick="closeMenu()">Реквізити</a>
+  <a href="#cart" class="mob-cta" onclick="closeMenu()">Замовити</a>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-left">
+    <div class="htag rev">Мережа ресторанів · Ukraine RP</div>
+    <h1 class="rev" style="transition-delay:.08s">
+      <span class="thin">Смачна</span>
+      <em>Курка.</em>
+    </h1>
+    <p class="hero-sub rev" style="transition-delay:.16s">
+      Офіційна мережа ресторанів KFC на Ukraine RP. Бургери, твістери, бакети — справжня їжа для тих, хто цінує якість.
+    </p>
+    <div class="hero-btns rev" style="transition-delay:.24s">
+      <a href="#menu" class="btn-fill">Переглянути меню</a>
+      <a href="#how" class="btn-line">Як замовити</a>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="hero-right-bg"></div>
+    <div class="hero-right-text">KFC</div>
+    <div class="hero-card rev" style="transition-delay:.3s">
+      <div class="hero-card-tag">Мережа ресторанів</div>
+      <div class="hero-card-num">7<span>днів</span></div>
+      <div class="hero-card-label">на тиждень</div>
+      <div class="hero-card-divider"></div>
+      <div class="hero-card-line">Локація <span>Гол. вокзал</span></div>
+      <div class="hero-card-line">Мін. замовлення <span style="color:var(--gold2)">1 000 грн</span></div>
+      <div class="hero-card-line">Ігровий рахунок <span>Carlson9990</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- TICKER -->
+<div class="ticker">
+  <div class="ticker-track" id="ticker"></div>
+</div>
+
+<!-- MENU -->
+<section class="sec" id="menu">
+  <div class="eyebrow rev"><div class="eyebrow-line"></div><span class="eyebrow-txt">Що у нас є</span></div>
+  <div class="sec-h rev" style="transition-delay:.08s">Меню</div>
+  <div class="menu-tabs rev" id="menuTabs" style="transition-delay:.14s"></div>
+  <div id="menuPanels"></div>
+</section>
+
+<!-- CART -->
+<section class="sec sec-alt" id="cart">
+  <div class="eyebrow rev"><div class="eyebrow-line"></div><span class="eyebrow-txt">Ваш вибір</span></div>
+  <div class="sec-h rev" style="transition-delay:.08s">Корзина</div>
+  <div class="cart-wrap">
+    <div class="cart-table rev" id="cartTable" style="transition-delay:.12s">
+      <div class="cart-empty">Оберіть страви з меню</div>
+    </div>
+    <div class="cart-panel rev" style="transition-delay:.18s">
+      <div class="cart-panel-h">Замовлення</div>
+      <div class="cp-line"><span>Страви</span><span id="subtotal">0 грн</span></div>
+      <div class="cp-line"><span>Доставка</span><span>за домовленістю</span></div>
+      <div class="cp-min" id="minWarn">Мінімальне замовлення — 1 000 грн</div>
+      <div class="cp-total">
+        <span class="cp-total-lbl">Разом</span>
+        <span class="cp-total-price" id="totalEl">0 грн</span>
+      </div>
+      <button class="tg-order-btn" onclick="doOrder()">Замовити через Telegram</button>
+    </div>
+  </div>
+</section>
+
+<!-- BOOKING -->
+<section class="sec" id="booking">
+  <div class="eyebrow rev"><div class="eyebrow-line"></div><span class="eyebrow-txt">Ваше місце</span></div>
+  <div class="sec-h rev" style="transition-delay:.08s">Бронювання столика</div>
+  <div class="book-grid rev" style="transition-delay:.14s">
+    <div class="book-card" onclick="addCart({name:'Просте місце',price:100})">
+      <div class="book-num">01</div>
+      <div class="book-title">Просте місце</div>
+      <div class="book-price">100 грн</div>
+      <div class="book-note">Оплата на місці при отриманні замовлення</div>
+    </div>
+    <div class="book-card book-dark" onclick="addCart({name:'VIP місце',price:1500})">
+      <div class="book-vip-tag">VIP</div>
+      <div class="book-num">02</div>
+      <div class="book-title">VIP місце</div>
+      <div class="book-price">1 500 грн</div>
+      <div class="book-note">Додається у корзину та сплачується заздалегідь</div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW TO -->
+<section class="sec sec-dark" id="how">
+  <div class="eyebrow rev"><div class="eyebrow-line"></div><span class="eyebrow-txt">Швидко та просто</span></div>
+  <div class="sec-h rev" style="transition-delay:.08s">Як замовити</div>
+  <div class="how-grid">
+    <div class="how-step"><div class="how-n">01</div><div class="how-title">Оберіть страви</div><div class="how-desc">Додайте позиції з меню до корзини прямо на сайті</div></div>
+    <div class="how-step" style="transition-delay:.07s"><div class="how-n">02</div><div class="how-title">Скріншот корзини</div><div class="how-desc">Зробіть скріншот вашого замовлення з усіма позиціями</div></div>
+    <div class="how-step" style="transition-delay:.14s"><div class="how-n">03</div><div class="how-title">Пишіть у Telegram</div><div class="how-desc">Натисніть "Замовити" — кнопка сама відкриє чат з оператором</div></div>
+    <div class="how-step" style="transition-delay:.21s"><div class="how-n">04</div><div class="how-title">Вкажіть адресу</div><div class="how-desc">Напишіть локацію доставки або що заберете самостійно</div></div>
+    <div class="how-step" style="transition-delay:.28s"><div class="how-n">05</div><div class="how-title">Оплатіть</div><div class="how-desc">Переведіть кошти на ігровий рахунок Carlson9990 та надішліть чек оператору</div></div>
+    <div class="how-step" style="transition-delay:.35s"><div class="how-n">06</div><div class="how-title">Насолоджуйтесь</div><div class="how-desc">Очікуйте доставку або заберіть на Головному вокзалі</div></div>
+  </div>
+</section>
+
+<!-- PAYMENT -->
+<section class="sec" id="payment">
+  <div class="eyebrow rev"><div class="eyebrow-line"></div><span class="eyebrow-txt">Оплата</span></div>
+  <div class="sec-h rev" style="transition-delay:.08s">Реквізити</div>
+  <div class="pay-block rev" style="transition-delay:.14s">
+    <div class="pay-cell">
+      <div class="pay-cell-lbl">Ігровий рахунок</div>
+      <div class="pay-cell-val">Carlson9990</div>
+    </div>
+    <div class="pay-cell">
+      <div class="pay-cell-lbl">Telegram оператора</div>
+      <div class="pay-cell-val">@Duf7484</div>
+    </div>
+    <div class="pay-cell">
+      <div class="pay-cell-lbl">Мін. замовлення</div>
+      <div class="pay-cell-val gold">1 000 грн</div>
+    </div>
+  </div>
+</section>
+
+<!-- NETWORK -->
+<section class="sec sec-dark" id="network">
+  <div class="eyebrow rev"><div class="eyebrow-line"></div><span class="eyebrow-txt">Ми скрізь</span></div>
+  <div class="sec-h rev" style="transition-delay:.08s">Мережа ресторанів</div>
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:2px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.06)" class="rev" style="transition-delay:.14s">
+    <div style="padding:44px 36px;background:var(--ink);transition:background .2s" onmouseenter="this.style.background='#251610'" onmouseleave="this.style.background='var(--ink)'">
+      <div style="font-size:10px;letter-spacing:4px;text-transform:uppercase;color:rgba(255,255,255,.3);margin-bottom:16px">Філія 01</div>
+      <div style="font-family:'Cormorant Garamond',serif;font-size:24px;font-weight:700;color:#fff;margin-bottom:6px">Головний вокзал</div>
+      <div style="font-size:13px;color:rgba(255,255,255,.35)">Основна точка мережі</div>
+    </div>
+    <div style="padding:44px 36px;background:var(--ink);transition:background .2s" onmouseenter="this.style.background='#251610'" onmouseleave="this.style.background='var(--ink)'">
+      <div style="font-size:10px;letter-spacing:4px;text-transform:uppercase;color:rgba(255,255,255,.3);margin-bottom:16px">Філія 02</div>
+      <div style="font-family:'Cormorant Garamond',serif;font-size:24px;font-weight:700;color:#fff;margin-bottom:6px">Незабаром</div>
+      <div style="font-size:13px;color:rgba(255,255,255,.35)">Нові локації відкриваються</div>
+    </div>
+    <div style="padding:44px 36px;background:var(--ink);transition:background .2s" onmouseenter="this.style.background='#251610'" onmouseleave="this.style.background='var(--ink)'">
+      <div style="font-size:10px;letter-spacing:4px;text-transform:uppercase;color:rgba(255,255,255,.3);margin-bottom:16px">Доставка</div>
+      <div style="font-family:'Cormorant Garamond',serif;font-size:24px;font-weight:700;color:#fff;margin-bottom:6px">По всьому місту</div>
+      <div style="font-size:13px;color:rgba(255,255,255,.35)">Замовляйте з будь-якої точки</div>
+    </div>
+    <div style="padding:44px 36px;background:var(--red2)">
+      <div style="font-size:10px;letter-spacing:4px;text-transform:uppercase;color:rgba(255,255,255,.5);margin-bottom:16px">Разом</div>
+      <div style="font-family:'Cormorant Garamond',serif;font-size:56px;font-weight:700;color:#fff;line-height:1;margin-bottom:6px">№1</div>
+      <div style="font-size:13px;color:rgba(255,255,255,.6)">Мережа на Ukraine RP</div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="f-logo">UR &nbsp;<em>KFC</em></div>
+  <div class="f-meta">
+    <div class="f-item"><strong>Мережа</strong>KFC Ukraine RP</div>
+    <div class="f-item"><strong>Графік</strong>7 днів на тиждень</div>
+    <div class="f-item"><strong>Локація</strong>Головний вокзал</div>
+    <div class="f-item"><strong>Ігровий рахунок</strong>Carlson9990</div>
+    <div class="f-item"><strong>Telegram</strong>@Duf7484</div>
+  </div>
+</footer>
+
+<div class="toast" id="toast">
+  <span class="toast-name" id="toastName"></span> додано до замовлення
+</div>
+
+<script>
+// Custom cursor
+const cur=document.getElementById('cur'),cur2=document.getElementById('cur2');
+document.addEventListener('mousemove',e=>{
+  cur.style.left=e.clientX+'px';cur.style.top=e.clientY+'px';
+  setTimeout(()=>{cur2.style.left=e.clientX+'px';cur2.style.top=e.clientY+'px'},80);
+});
+document.querySelectorAll('a,button,.menu-row,.book-card,.how-step').forEach(el=>{
+  el.addEventListener('mouseenter',()=>{
+    cur.style.width='12px';cur.style.height='12px';
+    cur2.style.width='56px';cur2.style.height='56px';
+    cur2.style.borderColor='rgba(204,26,40,.7)';
+  });
+  el.addEventListener('mouseleave',()=>{
+    cur.style.width='8px';cur.style.height='8px';
+    cur2.style.width='36px';cur2.style.height='36px';
+    cur2.style.borderColor='rgba(204,26,40,.4)';
+  });
+});
+
+// Ticker
+const TWORDS=['Смачна Курка','Головний Вокзал','Ukraine RP','Бургери','Твістери','Бакети','Гарніри','Напої'];
+const tt=document.getElementById('ticker');
+const seg=TWORDS.map(w=>`<span class="ticker-item">${w}</span>`).join('');
+tt.innerHTML=seg+seg+seg+seg;
+
+// Menu data
+const CATS=[
+  {cat:'Бургери',items:[
+    {name:'Чізбургер',price:300},{name:'Дабл Чізбургер',price:450},
+    {name:'Сандерс Класік',price:550},{name:'Сандерс Зінгер',price:650},
+    {name:'Шефбургер',price:750},{name:'Боксмайстер',price:900},
+    {name:'Гетьман Бургер',price:1200,star:true},{name:'Козацький Дабл Бургер',price:1500,star:true},
+  ]},
+  {cat:'Твістери',items:[
+    {name:'Ай-Твістер',price:1000},{name:'Твістер',price:2500},{name:'Боксмайстер',price:4000},
+  ]},
+  {cat:'Курка',items:[
+    {name:'3 Стріпси',price:500},{name:'5 Стріпсів',price:700},
+    {name:'5 Крил',price:700},{name:'9 Нагетсів',price:600},
+  ]},
+  {cat:'Бакети',items:[
+    {name:'Сандерс Бакет',price:5000},{name:'Дует Бакет',price:6000},
+    {name:'Хот Бакет',price:7000},{name:'Френдс Бакет',price:8000},
+  ]},
+  {cat:'Гарніри',items:[
+    {name:'Картопля Фрі',price:300},{name:'Картопля по-селянськи',price:400},
+    {name:'Сирний соус',price:300},{name:'Барбекю соус',price:300},
+  ]},
+  {cat:'Напої',items:[
+    {name:'Coca-Cola 0.5',price:300},{name:'Coca-Cola 1л',price:500},
+    {name:'Sprite 0.5',price:300},{name:'Fanta 0.5',price:300},
+    {name:'Узвар',price:500,star:true},{name:'Лимонад «Київський»',price:600,star:true},
+    {name:'Енергетик «Козак Energy»',price:1000,star:true},
+  ]},
+  {cat:'Комбо',items:[
+    {name:'Зінгер Комбо',price:1200},{name:'Шефбургер Комбо',price:1500},
+    {name:'Гетьман Комбо',price:2500},{name:'Козацьке Комбо',price:3000},
+  ]},
+];
+
+// Render menu
+const tabsEl=document.getElementById('menuTabs');
+const panelsEl=document.getElementById('menuPanels');
+
+CATS.forEach((c,ci)=>{
+  const t=document.createElement('button');
+  t.className='menu-tab'+(ci===0?' on':'');
+  t.textContent=c.cat;
+  t.onclick=()=>switchTab(ci);
+  tabsEl.appendChild(t);
+
+  const p=document.createElement('div');
+  p.className='menu-panel'+(ci===0?' on':'');
+  p.id='p'+ci;
+  const items=document.createElement('div');
+  items.className='menu-items';
+  c.items.forEach((item,ii)=>{
+    const row=document.createElement('div');
+    row.className='menu-row';
+    row.innerHTML=`
+      <div class="menu-row-idx">${String(ii+1).padStart(2,'0')}</div>
+      <div class="menu-row-name">${item.name}${item.star?'<span class="star">★</span>':''}</div>
+      <div class="menu-row-dots"></div>
+      <div class="menu-row-price">${item.price} грн</div>
+      <button class="menu-row-add" onclick='addCart(${JSON.stringify(item)})'>+</button>
+    `;
+    items.appendChild(row);
+  });
+  p.appendChild(items);
+  panelsEl.appendChild(p);
+});
+revPanel(0);
+
+function switchTab(i){
+  document.querySelectorAll('.menu-tab').forEach((t,j)=>t.classList.toggle('on',j===i));
+  document.querySelectorAll('.menu-panel').forEach((p,j)=>{
+    p.classList.toggle('on',j===i);
+    if(j===i)setTimeout(()=>revPanel(i),20);
+  });
+}
+function revPanel(i){
+  const rows=document.querySelectorAll('#p'+i+' .menu-row');
+  rows.forEach((r,idx)=>{r.classList.remove('vis');setTimeout(()=>r.classList.add('vis'),idx*45);});
+}
+
+// Cart
+let cart={};
+function addCart(item){
+  const k=item.name;
+  cart[k]=cart[k]?{...cart[k],qty:cart[k].qty+1}:{...item,qty:1};
+  renderCart();showToast(item.name);
+}
+function delCart(k){delete cart[k];renderCart();}
+function qtyCart(k,d){
+  if(!cart[k])return;
+  cart[k].qty+=d;
+  if(cart[k].qty<=0)delete cart[k];
+  renderCart();
+}
+function renderCart(){
+  const el=document.getElementById('cartTable');
+  const keys=Object.keys(cart);
+  const MIN=1000;
+  if(!keys.length){
+    el.innerHTML='<div class="cart-empty">Оберіть страви з меню</div>';
+    document.getElementById('subtotal').textContent='0 грн';
+    document.getElementById('totalEl').textContent='0 грн';
+    document.getElementById('minWarn').classList.remove('show');
+    return;
+  }
+  let total=0;
+  el.innerHTML=keys.map(k=>{
+    const it=cart[k];total+=it.price*it.qty;
+    const ks=k.replace(/'/g,"\\'");
+    return `<div class="cart-item">
+      <div class="ci-name">${it.name}</div>
+      <div class="ci-qty">
+        <button class="ci-btn" onclick="qtyCart('${ks}',-1)">−</button>
+        <span class="ci-n">${it.qty}</span>
+        <button class="ci-btn" onclick="qtyCart('${ks}',1)">+</button>
+      </div>
+      <div class="ci-price">${it.price*it.qty} грн</div>
+      <button class="ci-del" onclick="delCart('${ks}')">✕</button>
+    </div>`;
+  }).join('');
+  document.getElementById('subtotal').textContent=total+' грн';
+  document.getElementById('totalEl').textContent=total+' грн';
+  document.getElementById('minWarn').classList.toggle('show',total<MIN);
+}
+
+function doOrder(){
+  const keys=Object.keys(cart);
+  if(!keys.length){showToast('Додайте страви до корзини');return;}
+  let total=0;
+  keys.forEach(k=>{total+=cart[k].price*cart[k].qty;});
+  if(total<1000){
+    document.getElementById('minWarn').classList.add('show');
+    showToast('Мінімальне замовлення — 1 000 грн');return;
+  }
+  let text='Замовлення KFC UR:\n\n';
+  keys.forEach(k=>{
+    const it=cart[k];
+    text+=`${it.name} x${it.qty} — ${it.price*it.qty} грн\n`;
+  });
+  text+=`\nРазом: ${total} грн`;
+  window.open('https://t.me/Duf7484?text='+encodeURIComponent(text),'_blank');
+}
+
+function showToast(name){
+  const t=document.getElementById('toast');
+  document.getElementById('toastName').textContent=name;
+  t.classList.add('show');
+  clearTimeout(t._tid);
+  t._tid=setTimeout(()=>t.classList.remove('show'),2800);
+}
+
+// Scroll reveal
+const io=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('vis');io.unobserve(e.target);}});
+},{threshold:0.08});
+document.querySelectorAll('.rev,.how-step').forEach(el=>io.observe(el));
+
+// Nav shadow
+window.addEventListener('scroll',()=>{
+  document.getElementById('nav').classList.toggle('up',scrollY>10);
+});
+
+setTimeout(()=>document.querySelectorAll('.rev').forEach(el=>io.observe(el)),80);
+</script>
+</body>
+</html>
